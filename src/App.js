@@ -16,8 +16,8 @@ function App() {
 
   return (
       <div className="app">
-        <Header />
         <form>
+            <Header />
             <CalculatorForm placeholder = "Курс ЦБ"/>
 
             <CalculatorForm placeholder = "Валюта($/€)"/>
