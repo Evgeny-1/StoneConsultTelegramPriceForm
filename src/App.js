@@ -21,49 +21,57 @@ function App() {
 
   return (
       <div className="app">
-        <form onSubmit={handleSubmit}>
-            <h1>StoneConsult</h1>
-            <CalculatorForm placeholder = "Курс ЦБ"/>
+          <h1>StoneConsult</h1>
+          <CalculatorForm placeholder = "Курс ЦБ"/>
 
-            <CalculatorForm placeholder = "Валюта($/€)"/>
-            <CalculatorForm placeholder = "Страна"/>
-            <CalculatorForm placeholder = "Цена завода за м2"/>
+          <CalculatorForm placeholder = "Валюта($/€)"/>
 
-            <CalculatorForm placeholder = "Ширина"/>
-            <CalculatorForm placeholder = "Длина"/>
-            <CalculatorForm placeholder = "Толщина"/>
+          <CalculatorForm placeholder = "Страна"/>
 
-            <CalculatorForm placeholder = "Плотность"/>
+          <CalculatorForm placeholder = "Цена завода за м2"/>
 
-            <CalculatorForm placeholder = "Объем"/>
-            <CalculatorForm placeholder = "Тоннаж"/>
-            <CalculatorForm placeholder = "Вместимость контейнера"/>
+          <CalculatorForm placeholder = "Ширина"/>
+          <CalculatorForm placeholder = "Длина"/>
+          <CalculatorForm placeholder = "Толщина"/>
 
-            <CalculatorForm placeholder = "Фрахт"/>
-            <CalculatorForm placeholder = "Прочее"/>
-            <CalculatorForm placeholder = "Пошлина"/>
+          <CalculatorForm placeholder = "Плотность"/>
 
-            <CalculatorForm placeholder = "НДС до РФ"/>
+          <CalculatorForm placeholder = "Объем"/>
+          <CalculatorForm placeholder = "Тоннаж"/>
+          <CalculatorForm placeholder = "Вместимость контейнера"/>
+          <div "Контейнеры (шт)"/>
 
-            <CalculatorForm placeholder = "Банковские расходы"/>
+          <div "Инвойс"/>
 
-            <CalculatorForm placeholder = "Фрахт без НДС"/>
-            <CalculatorForm placeholder = "Прочее без НДС"/>
-            <CalculatorForm placeholder = "Фрахт с НДС"/>
-            <CalculatorForm placeholder = "Прочее с НДС"/>
+          <CalculatorForm placeholder = "Фрахт"/>
+          <CalculatorForm placeholder = "Прочее"/>
+          <CalculatorForm placeholder = "Пошлина"/>
+          <div "Итого"/>
 
-            <CalculatorForm placeholder = "НДС по РФ"/>
+          <CalculatorForm placeholder = "НДС до РФ"/>
+          <div "Итого"/>
 
-            <CalculatorForm placeholder = "Наценка"/>
+          <CalculatorForm placeholder = "Банковские расходы"/>
+          <div "Итого"/>
 
-            <CalculatorForm placeholder = "Наименование камня($/€)"/>
+          <CalculatorForm placeholder = "Фрахт без НДС"/>
+          <CalculatorForm placeholder = "Прочее без НДС"/>
+          <CalculatorForm placeholder = "Фрахт с НДС"/>
+          <CalculatorForm placeholder = "Прочее с НДС"/>
 
-            <CalculatorForm placeholder = "Цена за м2($/€)"/>
-            <CalculatorForm placeholder = "Цена за м2(руб)"/>
-            <CalculatorForm placeholder = "Цена за шт($/€)"/>
-            <CalculatorForm placeholder = "Цена за шт(руб)"/>
-        </form>
+          <CalculatorForm placeholder = "НДС по РФ"/>
+          <div "Итого"/>
 
+          <CalculatorForm placeholder = "Наценка"/>
+          <div "Итого"/>
+
+          <CalculatorForm placeholder = "Наименование камня($/€)"/>
+
+          <div "Итого по Заказу"/>
+          <div "Цена за м2($/€)"/>
+          <div "Цена за м2(руб)"/>
+          <div "Цена за шт($/€)"/>
+          <div "Цена за шт(руб)"/>
 
         {/*<Routes>*/}
 
