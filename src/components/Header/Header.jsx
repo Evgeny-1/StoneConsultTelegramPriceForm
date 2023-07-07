@@ -9,7 +9,6 @@ const Header = () => {
 
     return (
         <div className={'header'}>
-            <img src={logo} width="50" height="50" />
             StoneConsult
         </div>
     );
