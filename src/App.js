@@ -21,6 +21,7 @@ function App() {
 
   return (
       <div className="app">
+          <form onSubmit={handleSubmit}>
           <h1>StoneConsult</h1>
           <CalculatorForm placeholder = "Курс ЦБ"/>
 
@@ -72,7 +73,7 @@ function App() {
           <div>"Цена за м2(руб)"</div>
           <div>"Цена за шт($/€)"</div>
           <div>"Цена за шт(руб)"</div>
-
+            </form>
 
         {/*<Routes>*/}
 
