@@ -1,5 +1,5 @@
 import './App.css';
-import { useState } from "react";
+import React, { useState } from "react";
 import {useEffect} from "react";
 import {useTelegram} from "./hooks/useTelegram";
 import Header from "./components/Header/Header";
@@ -22,7 +22,7 @@ function App() {
   return (
       <div className="app">
         <form onSubmit={handleSubmit}>
-            <Header />
+            <h1>StoneConsult</h1>
             <CalculatorForm placeholder = "Курс ЦБ"/>
 
             <CalculatorForm placeholder = "Валюта($/€)"/>
