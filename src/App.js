@@ -12,11 +12,15 @@ function App() {
 
   useEffect(() => {
     tg.ready();
-  }, [])
+  }, []);
+
+  const handleSubmit = (e) => {
+      e.preventDefault();
+  };
 
   return (
       <div className="app">
-        <form>
+        <form onSubmit={handleSubmit}>
             <Header />
             <CalculatorForm placeholder = "Курс ЦБ"/>
 
