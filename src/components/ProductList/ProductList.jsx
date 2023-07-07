@@ -5,14 +5,14 @@ import {useTelegram} from "../../hooks/useTelegram";
 import {useCallback, useEffect} from "react";
 
 const products = [
-    {id: '1', title: 'Джинсы', price: 5000, description: 'Синего цвета, прямые'},
-    {id: '2', title: 'Куртка', price: 12000, description: 'Зеленого цвета, теплая'},
-    {id: '3', title: 'Джинсы 2', price: 5000, description: 'Синего цвета, прямые'},
-    {id: '4', title: 'Куртка 8', price: 122, description: 'Зеленого цвета, теплая'},
-    {id: '5', title: 'Джинсы 3', price: 5000, description: 'Синего цвета, прямые'},
-    {id: '6', title: 'Куртка 7', price: 600, description: 'Зеленого цвета, теплая'},
-    {id: '7', title: 'Джинсы 4', price: 5500, description: 'Синего цвета, прямые'},
-    {id: '8', title: 'Куртка 5', price: 12000, description: 'Зеленого цвета, теплая'},
+    {id: '1', title: 'Trambisera', price: 9900, description: 'Мрамор, Серый, Италия'},
+    {id: '2', title: 'Baobab', price: 12000, description: 'Лабрадорит, Синий, Италия'},
+    {id: '3', title: 'Blue Pearl', price: 5000, description: 'Лабрадорит, Синий, Италия'},
+    {id: '4', title: 'Amphibolite Black', price: 12200, description: 'Гранит, Черный, Вьетнам'},
+    {id: '5', title: 'Amazonite', price: 5000, description: 'Гранит, Зеленый, Италия'},
+    {id: '6', title: 'Blanc Du Blanc', price: 6000, description: 'Гранит, Желтый, Бразилия'},
+    {id: '7', title: 'Aurora Borealis', price: 5500, description: 'Кварцит, Cерый, Бразилия'},
+    {id: '8', title: 'Beige Topazio', price: 12000, description: 'Травертин, Бежевый, Португалия'},
 ]
 
 const getTotalPrice = (items = []) => {
