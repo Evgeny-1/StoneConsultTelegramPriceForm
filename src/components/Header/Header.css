@@ -7,32 +7,17 @@
     .container{
         width: 996px;
     }
-    .logo__img {
-        width: 64px;
-        border-radius: 6px;
-        transition: 0.3s;
-    }
 }
 
 @media screen and (max-width:996px) {
     .container{
         width: 768px;
     }
-    .logo__img {
-        width: 64px;
-        border-radius: 6px;
-        transition: 0.3s;
-    }
 }
 
 @media screen and (max-width:768px) {
     .container{
         width: 576px;
-    }
-    .logo__img {
-        width: 64px;
-        border-radius: 6px;
-        transition: 0.3s;
     }
 }
 
@@ -41,15 +26,15 @@
         width: 100%;
         padding: 0px 1rem;
     }
-    .logo__img {
-        width: 32px;
-        border-radius: 3px;
-        transition: 0.3s;
-    }
 }
 
-body{
-    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+span{
+ margin-left: 5px;
 }
 
 
+.logo__img {
+    width: 64px;
+    border-radius: 6px;
+    transition: 0.3s;
+}

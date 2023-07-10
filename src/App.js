@@ -3,8 +3,7 @@ import React, {useState} from "react";
 import {useEffect} from "react";
 import {useTelegram} from "./hooks/useTelegram";
 import Header from "./components/Header/Header";
-import {Route, Routes} from 'react-router-dom'
-import ProductList from "./components/ProductList/ProductList";
+import {Route, Routes} from 'react-router-dom';
 import Form from "./components/Form/Form";
 import CalculatorForm from "./components/InputCalculatorForm/InputCalculatorForm";
 
@@ -20,8 +19,7 @@ function App() {
     };
 
     return (
-        <div className="app">
-            <form onSubmit={handleSubmit}>
+        <div className="container">
                 <Header />
                 <CalculatorForm placeholder="Курс ЦБ"/>
 
@@ -74,7 +72,6 @@ function App() {
                 <div>"Цена за м2(руб)"</div>
                 <div>"Цена за шт($/€)"</div>
                 <div>"Цена за шт(руб)"</div>
-            </form>
             {/*<Routes>*/}
 
             {/*  <Route index element={<ProductList />}/>*/}
