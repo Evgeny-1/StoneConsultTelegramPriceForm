@@ -65,7 +65,7 @@ label{
 }
 
 .my_input{
-    width:15%;
+    width:10%;
 }
 
 .my_input2{
@@ -79,7 +79,7 @@ label{
 }
 
 .port_select{
-    width:70%;
+    width:50%;
     height: 47px;
     border-radius: 5px;
 }

@@ -88,7 +88,7 @@ function App() {
 
 
             <form>
-                <label>Порт отргрузки</label>
+                <label>Порт  отргрузки </label>
                 <select className={'port_select'} value={myCar} onChange={handleChange}>
                     <option value="Бандерабас">Бандерабас</option>
                     <option value="Владивосток">Владивосток</option>
@@ -97,11 +97,12 @@ function App() {
             </form>
 
             <form>
-                <label>Порт доставки      </label>
+                <label>Место доставки</label>
                 <select className={'port_select'} value={myCar} onChange={handleChange}>
-                    <option value="Бандерабас">Бандерабас</option>
-                    <option value="Владивосток">Владивосток</option>
-                    <option value="Ксяньмынь">Ксяньмынь</option>
+                    <option value="Владикавказ">Бандерабас</option>
+                    <option value="Новороссийск">Владивосток</option>
+                    <option value="Санкт-Петербург">Ксяньмынь</option>
+                    <option value="Москва">Ксяньмынь</option>
                 </select>
             </form>
 
