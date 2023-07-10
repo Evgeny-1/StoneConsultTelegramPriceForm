@@ -22,7 +22,7 @@ function App() {
     return (
         <div className="app">
             <form onSubmit={handleSubmit}>
-                <h1>Калькулятор</h1>
+                <Header />
                 <CalculatorForm placeholder="Курс ЦБ"/>
 
                 <CalculatorForm placeholder="Валюта($/€)"/>
