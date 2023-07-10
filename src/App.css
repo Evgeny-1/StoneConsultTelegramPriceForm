@@ -47,3 +47,39 @@ button{
 body{
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
+
+form{
+    background-color: white;
+    padding: 5px;
+}
+
+select{
+    width:100%;
+    height: 47px;
+    border-radius: 5px;
+}
+
+label{
+    padding: 5px;
+
+}
+
+.my_input{
+    width:15%;
+}
+
+.my_input2{
+    width:25%;
+}
+
+.currency_select{
+    width:10%;
+    height: 47px;
+    border-radius: 5px;
+}
+
+.port_select{
+    width:70%;
+    height: 47px;
+    border-radius: 5px;
+}

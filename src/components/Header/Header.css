@@ -1,40 +1,17 @@
-.container{
-    width: 1140px;
-    margin: auto;
+.header_container{
+    background-color: white;
+    align-items: center;
+    justify-content: center;
 }
-
-@media screen and (max-width:1140px) {
-    .container{
-        width: 996px;
-    }
-}
-
-@media screen and (max-width:996px) {
-    .container{
-        width: 768px;
-    }
-}
-
-@media screen and (max-width:768px) {
-    .container{
-        width: 576px;
-    }
-}
-
-@media screen and (max-width:576px) {
-    .container {
-        width: 100%;
-        padding: 0px 1rem;
-    }
-}
-
-span{
- margin-left: 5px;
-}
-
 
 .logo__img {
     width: 64px;
     border-radius: 6px;
     transition: 0.3s;
+}
+
+.caption{
+    font-size: 20px;
+    float: right;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }

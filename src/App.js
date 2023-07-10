@@ -4,8 +4,8 @@ import {useEffect} from "react";
 import {useTelegram} from "./hooks/useTelegram";
 import Header from "./components/Header/Header";
 import {Route, Routes} from 'react-router-dom';
-import Form from "./components/Form/Form";
 import CalculatorForm from "./components/InputCalculatorForm/InputCalculatorForm";
+
 
 function App() {
     const {onToggleButton, tg} = useTelegram();
@@ -18,60 +18,93 @@ function App() {
         e.preventDefault();
     };
 
+    const [inputs, setInputs] = useState({});
+
+    const handleChangee = (event) => {
+        const name = event.target.name;
+        const value = event.target.value;
+        setInputs(values => ({...values, [name]: value}))
+    }
+
+    const handleSubmitt = (event) => {
+        event.preventDefault();
+        alert(inputs);
+    }
+
+
+    const [myCar, setMyCar] = useState("Volvo");
+
+    const handleChange = (event) => {
+        setMyCar(event.target.value)
+    }
+
     return (
-        <div className="container">
-                <Header />
-                <CalculatorForm placeholder="Курс ЦБ"/>
+        <div>
+            <Header/>
 
-                <CalculatorForm placeholder="Валюта($/€)"/>
+            <CalculatorForm placeholder="Наименование камня"/>
+            <select value={myCar} onChange={handleChange}>
+                <option value="Гранит">Гранит</option>
+                <option value="Мрамор">Мрамор</option>
+                <option value="Лабрадорит">Лабрадорит</option>
+                <option value="Кварц">Кварц</option>
+                <option value="Кварцит">Кварцит</option>
+                <option value="Известняк">Известняк</option>
+                <option value="Травертин">Травертин</option>
+                <option value="Сланец">Сланец</option>
+                <option value="Песчанник">Песчанник</option>
+                <option value="Оникс">Оникс</option>
+                <option value="Базальт">Базальт</option>
+                <option value="Аметист">Аметист</option>
+                <option value="Агат">Агат</option>
+            </select>
 
-                <CalculatorForm placeholder="Страна"/>
 
-                <CalculatorForm placeholder="Цена завода за м2"/>
+            <form>
+                <label>Геометрия</label>
+                <label>
+                    <input className="my_input" type="text" name="username"/>
+                </label>
+                <label>
+                    <input className="my_input" type="text" name="age"/>
+                </label>
+                <label>
+                    <input className="my_input" type="text" name="age"/>
+                </label>
+            </form>
 
-                <CalculatorForm placeholder="Ширина"/>
-                <CalculatorForm placeholder="Длина"/>
-                <CalculatorForm placeholder="Толщина"/>
+            <CalculatorForm placeholder="Объем, м2"/>
+            <form>
+                <label>Цена завода за м2</label>
+                <label>
+                    <input className="my_input2" type="text" name="age"/>
+                </label>
+                <select className={'currency_select'} value={myCar} onChange={handleChange}>
+                    <option value="$">$</option>
+                    <option value="€">€</option>
+                    <option value="₽">₽</option>
+                </select>
+            </form>
 
-                <CalculatorForm placeholder="Плотность"/>
 
-                <CalculatorForm placeholder="Объем"/>
-                <CalculatorForm placeholder="Тоннаж"/>
-                <CalculatorForm placeholder="Вместимость контейнера"/>
-                <div> "Контейнеры (шт)"
-                </div>
+            <form>
+                <label>Порт отргрузки</label>
+                <select className={'port_select'} value={myCar} onChange={handleChange}>
+                    <option value="Бандерабас">Бандерабас</option>
+                    <option value="Владивосток">Владивосток</option>
+                    <option value="Ксяньмынь">Ксяньмынь</option>
+                </select>
+            </form>
 
-                <div>"Инвойс"</div>
+            <form>
+                <label>Порт доставки      </label>
+                <select className={'port_select'} value={myCar} onChange={handleChange}>
+                    <option value="Бандерабас">Бандерабас</option>
+                    <option value="Владивосток">Владивосток</option>
+                    <option value="Ксяньмынь">Ксяньмынь</option>
+                </select>
+            </form>
 
-                <CalculatorForm placeholder="Фрахт"/>
-                <CalculatorForm placeholder="Прочее"/>
-                <CalculatorForm placeholder="Пошлина"/>
-                <div>"Итого"</div>
-
-                <CalculatorForm placeholder="НДС до РФ"/>
-                <div>"Итого"</div>
-
-                <CalculatorForm placeholder="Банковские расходы"/>
-                <div>"Итого"</div>
-
-                <CalculatorForm placeholder="Фрахт без НДС"/>
-                <CalculatorForm placeholder="Прочее без НДС"/>
-                <CalculatorForm placeholder="Фрахт с НДС"/>
-                <CalculatorForm placeholder="Прочее с НДС"/>
-
-                <CalculatorForm placeholder="НДС по РФ"/>
-                <div>"Итого"</div>
-
-                <CalculatorForm placeholder="Наценка"/>
-                <div>"Итого"</div>
-
-                <CalculatorForm placeholder="Наименование камня($/€)"/>
-
-                <div>"Итого по Заказу"</div>
-                <div>"Цена за м2($/€)"</div>
-                <div>"Цена за м2(руб)"</div>
-                <div>"Цена за шт($/€)"</div>
-                <div>"Цена за шт(руб)"</div>
             {/*<Routes>*/}
 
             {/*  <Route index element={<ProductList />}/>*/}
