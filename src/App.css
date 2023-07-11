@@ -1,14 +1,15 @@
 body{
     font-size: 18px;
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: url('./Images/Conteiners.jpg');
-
+    background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(20, 20, 20, 0.8)),url('./Images/Conteiners.jpg');
     background-size: cover;
+    background-repeat: no-repeat;
 }
 
 .container{
     width: 1140px;
     margin: auto;
+
 }
 
 @media screen and (max-width:1140px) {
