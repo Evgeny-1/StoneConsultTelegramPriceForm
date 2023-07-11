@@ -1,7 +1,7 @@
 body{
     font-size: 18px;
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: linear-gradient(rgba(255, 255, 255, 0.7), rgba(0, 0, 0, 0.2)),
+    background: linear-gradient(rgba(255, 255, 255, 0.7), rgba(0, 0, 10, 0.9)),
                 url('./Images/Conteiners.jpg');
     background-size: cover;
     background-repeat: no-repeat;
@@ -40,7 +40,7 @@ body{
 }
 
 label{
-    color: black;
+    color: lightcyan;
 }
 
 input{
@@ -68,3 +68,4 @@ select{
     margin-bottom: 10px;
     margin-top: 10px;
 }
+
