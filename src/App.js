@@ -42,7 +42,7 @@ function App() {
         <div className={'container'}>
             <Header/>
             <form>
-                <label>Вид камня</label>
+                <label><strong>Вид камня</strong></label>
                 <select className={'port_select'} value={myCar} onChange={handleChange}>
                     <option value="Гранит">Гранит</option>
                     <option value="Мрамор">Мрамор</option>
@@ -58,19 +58,19 @@ function App() {
                     <option value="Аметист">Аметист</option>
                     <option value="Агат">Агат</option>
                 </select>
-                <label>Геометрия</label>
+                <label><strong>Геометрия</strong></label>
                 <CalculatorForm placeholder="Толщина, мм"/>
-                <label>Кол-во товара в м2</label>
+                <label><strong>Кол-во товара в м2</strong></label>
                 <CalculatorForm placeholder="Объем, м2"/>
-                <label>Цена завода за м2</label>
+                <label><strong>Цена завода за м2</strong></label>
                 <CalculatorForm placeholder="Цена"/>
-                <label>Валюта</label>
+                <label><strong>Валюта</strong></label>
                 <select className={'port_select'} value={myCar} onChange={handleChange}>
                     <option value="$">$</option>
                     <option value="€">€</option>
                     <option value="₽">₽</option>
                 </select>
-                <label>Порт отгрузки </label>
+                <label><strong>Порт отгрузки</strong></label>
                 <select className={'port_select'} value={myCar} onChange={handleChange}>
                     <option value="Xiamen">Xiamen</option>
                     <option value="Wuhan">Wuhan</option>
@@ -85,7 +85,7 @@ function App() {
                     <option value="Stambul">Stambul</option>
                     <option value="Vitoria">Vitoria</option>
                 </select>
-                <label>Место доставки</label>
+                <label><strong>Место доставки</strong></label>
                 <select className={'port_select'} value={myCar} onChange={handleChange}>
                     <option value="Владикавказ">Владикавказ</option>
                     <option value="Новороссийск">Новороссийск</option>

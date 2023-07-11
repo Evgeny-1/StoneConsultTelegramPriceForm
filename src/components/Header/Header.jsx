@@ -12,7 +12,7 @@ const Header = () => {
                 <img src={require('../../Images/StoneConsult.png')} alt={"Logo"} className="logo__img"/>
             </div>
             <div className={'B'}>
-                <label>StoneConsult</label>
+                <label><strong>StoneConsult</strong></label>
             </div>
 
         </div>

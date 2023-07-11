@@ -3,7 +3,7 @@
     grid-template-areas:    "f b . . . . . ."
                             "f i . . . . . ."
                             "f o . . . . . .";
-    background-color: white;
+
     border-radius: 5px;
 }
 
@@ -11,6 +11,7 @@
     width: 50px;
     border-radius: 5px;
     transition: 0.3s;
+    border: 1px solid black;
 }
 
 .A{
