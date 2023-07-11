@@ -2,7 +2,7 @@ body{
     font-size: 18px;
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     position: relative;
-    background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(20, 20, 20, 0.8)),
+    background: linear-gradient(rgba(255, 255, 255, 0.7), rgba(0, 0, 0, 0.8)),
                 url('./Images/Conteiners.jpg');
     background-size: cover;
     background-repeat: no-repeat;
