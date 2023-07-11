@@ -1,7 +1,7 @@
 body{
     font-size: 18px;
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: linear-gradient(rgba(255, 255, 255, 0.7), rgba(0, 0, 0, 0.6)),
+    background: linear-gradient(rgba(255, 255, 255, 0.7), rgba(0, 0, 0, 0.2)),
                 url('./Images/Conteiners.jpg');
     background-size: cover;
     background-repeat: no-repeat;
@@ -12,7 +12,6 @@ body{
 .container{
     width: 1140px;
     margin: auto;
-
 }
 
 @media screen and (max-width:1140px) {
