@@ -41,41 +41,33 @@ function App() {
     return (
         <div className={'container'}>
             <Header/>
-
-            <CalculatorForm placeholder="Наименование камня"/>
-            <select className={'port_select'} value={myCar} onChange={handleChange}>
-                <option value="Гранит">Гранит</option>
-                <option value="Мрамор">Мрамор</option>
-                <option value="Лабрадорит">Лабрадорит</option>
-                <option value="Кварц">Кварц</option>
-                <option value="Кварцит">Кварцит</option>
-                <option value="Известняк">Известняк</option>
-                <option value="Травертин">Травертин</option>
-                <option value="Сланец">Сланец</option>
-                <option value="Песчанник">Песчанник</option>
-                <option value="Оникс">Оникс</option>
-                <option value="Базальт">Базальт</option>
-                <option value="Аметист">Аметист</option>
-                <option value="Агат">Агат</option>
-            </select>
-
-            <label>Геометрия</label>
-            <form className={'geometry_container'}>
+            <form>
+                <CalculatorForm placeholder="Наименование камня"/>
+                <select className={'port_select'} value={myCar} onChange={handleChange}>
+                    <option value="Гранит">Гранит</option>
+                    <option value="Мрамор">Мрамор</option>
+                    <option value="Лабрадорит">Лабрадорит</option>
+                    <option value="Кварц">Кварц</option>
+                    <option value="Кварцит">Кварцит</option>
+                    <option value="Известняк">Известняк</option>
+                    <option value="Травертин">Травертин</option>
+                    <option value="Сланец">Сланец</option>
+                    <option value="Песчанник">Песчанник</option>
+                    <option value="Оникс">Оникс</option>
+                    <option value="Базальт">Базальт</option>
+                    <option value="Аметист">Аметист</option>
+                    <option value="Агат">Агат</option>
+                </select>
+                <label>Геометрия</label>
                 <CalculatorForm placeholder="Толщина, мм"/>
-            </form>
-
-            <CalculatorForm placeholder="Объем, м2"/>
-            <label>Цена завода за м2</label>
-            <form className={'price_container'}>
-                <input type="text" name="age"/>
-                <select className={'currency_select'} value={myCar} onChange={handleChange}>
+                <CalculatorForm placeholder="Объем, м2"/>
+                <label>Цена завода за м2</label>
+                <CalculatorForm placeholder="Цена"/>
+                <select className={'port_select'} value={myCar} onChange={handleChange}>
                     <option value="$">$</option>
                     <option value="€">€</option>
                     <option value="₽">₽</option>
                 </select>
-            </form>
-
-            <form>
                 <label>Порт отгрузки </label>
                 <select className={'port_select'} value={myCar} onChange={handleChange}>
                     <option value="Xiamen">Xiamen</option>
