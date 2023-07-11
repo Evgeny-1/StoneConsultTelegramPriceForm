@@ -3,7 +3,7 @@
     grid-template-areas:    "f b . . . . . ."
                             "f i . . . . . ."
                             "f o . . . . . .";
-    background-color: gray;
+    background-color: white;
     border-radius: 5px;
 }
 

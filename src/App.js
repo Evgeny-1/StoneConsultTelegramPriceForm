@@ -75,7 +75,6 @@ function App() {
                 </select>
             </form>
 
-
             <form>
                 <label>Порт отгрузки </label>
                 <select className={'port_select'} value={myCar} onChange={handleChange}>
@@ -92,9 +91,6 @@ function App() {
                     <option value="Stambul">Stambul</option>
                     <option value="Vitoria">Vitoria</option>
                 </select>
-            </form>
-
-            <form>
                 <label>Место доставки</label>
                 <select className={'port_select'} value={myCar} onChange={handleChange}>
                     <option value="Владикавказ">Владикавказ</option>
