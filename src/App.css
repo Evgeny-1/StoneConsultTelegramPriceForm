@@ -35,6 +35,7 @@ body{
 
 form{
     background-color: gray;
+    border-radius: 10px;
     padding: 5px;
 }
 
