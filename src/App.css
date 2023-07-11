@@ -2,7 +2,7 @@ body{
     font-size: 18px;
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background: url('./Images/Conteiners.jpg');
-    background-repeat: no-repeat;
+
     background-size: cover;
 }
 
