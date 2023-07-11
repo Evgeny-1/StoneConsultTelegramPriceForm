@@ -39,7 +39,7 @@ function App() {
     }
 
     return (
-        <div>
+        <div className={'container'}>
             <Header/>
 
             <CalculatorForm placeholder="Наименование камня"/>
@@ -59,9 +59,8 @@ function App() {
                 <option value="Агат">Агат</option>
             </select>
 
-
-            <form>
-                <label>Геометрия</label>
+            <label>Геометрия</label>
+            <form className={'geometry_container'}>
                 <label>
                     <input className="my_input" type="text" name="username"/>
                 </label>
@@ -76,9 +75,7 @@ function App() {
             <CalculatorForm placeholder="Объем, м2"/>
             <form>
                 <label>Цена завода за м2</label>
-                <label>
-                    <input className="my_input2" type="text" name="age"/>
-                </label>
+                <input className="my_input2" type="text" name="age"/>
                 <select className={'currency_select'} value={myCar} onChange={handleChange}>
                     <option value="$">$</option>
                     <option value="€">€</option>
