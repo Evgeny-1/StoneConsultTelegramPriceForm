@@ -61,9 +61,9 @@ function App() {
 
             <label>Геометрия</label>
             <form className={'geometry_container'}>
-                <input type="text" name="username"/>
-                <input type="text" name="age"/>
-                <input type="text" name="age"/>
+                <CalculatorForm placeholder="Длина, мм"/>
+                <CalculatorForm placeholder="Ширина, мм"/>
+                <CalculatorForm placeholder="Толщина, мм"/>
             </form>
 
             <CalculatorForm placeholder="Объем, м2"/>
