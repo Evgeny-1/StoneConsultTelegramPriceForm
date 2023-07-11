@@ -1,6 +1,7 @@
 .header_container{
     display: grid;
-    grid-template-columns: 20% 80%;
+    grid-template: repeat(1, 1fr) / repeat(2, 2fr);
+    justify-items: stretch;
     background-color: bisque;
 }
 

@@ -61,22 +61,16 @@ function App() {
 
             <label>Геометрия</label>
             <form className={'geometry_container'}>
-                <label>
-                    <input className="my_input" type="text" name="username"/>
-                </label>
-                <label>
-                    <input className="my_input" type="text" name="age"/>
-                </label>
-                <label>
-                    <input className="my_input" type="text" name="age"/>
-                </label>
+                <input type="text" name="username"/>
+                <input type="text" name="age"/>
+                <input type="text" name="age"/>
             </form>
 
             <CalculatorForm placeholder="Объем, м2"/>
-            <form>
-                <label>Цена завода за м2</label>
-                <input className="my_input2" type="text" name="age"/>
-                <select className={'currency_select'} value={myCar} onChange={handleChange}>
+            <label>Цена завода за м2</label>
+            <form className={'price_container'}>
+                <input type="text" name="age"/>
+                <select value={myCar} onChange={handleChange}>
                     <option value="$">$</option>
                     <option value="€">€</option>
                     <option value="₽">₽</option>
@@ -85,7 +79,7 @@ function App() {
 
 
             <form>
-                <label>Порт  отгрузки </label>
+                <label>Порт отгрузки </label>
                 <select className={'port_select'} value={myCar} onChange={handleChange}>
                     <option value="Xiamen">Xiamen</option>
                     <option value="Wuhan">Wuhan</option>
