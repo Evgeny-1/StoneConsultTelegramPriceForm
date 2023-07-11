@@ -51,7 +51,6 @@ input{
     width:100%;
 }
 
-
 .geometry_container{
     display: grid;
     grid-template: 1fr/ 2fr;
@@ -80,4 +79,8 @@ input{
     font-size: 18px;
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: white;
+    color: black;
+
+    margin-bottom: 10px;
+    margin-top: 10px;
 }
