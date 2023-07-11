@@ -1,13 +1,14 @@
 .header_container{
     display: grid;
-    grid-column: 2 / 3;
-
+    grid-template-columns: 15% 90%;
     background-color: gray;
     border-radius: 10px;
+    justify-items: start;
+    align-items: end;
 }
 
 .logo__img {
-    width: 50px;
+    width: 45px;
     border-radius: 5px;
     transition: 0.3s;
 }

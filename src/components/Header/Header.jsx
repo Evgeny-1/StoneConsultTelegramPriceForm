@@ -7,12 +7,10 @@ const Header = () => {
     const {user, onClose} = useTelegram();
 
     return (
-        <body>
         <div className={'header_container'}>
             <img src={require('../../Images/StoneConsult.png')} alt={"Logo"} className="logo__img"/>
-            <span className="caption"><a>StoneConsult</a></span>
+            <span className="caption">StoneConsult</span>
         </div>
-        </body>
     );
 };
 
