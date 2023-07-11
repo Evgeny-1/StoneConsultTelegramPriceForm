@@ -42,7 +42,7 @@ function App() {
         <div className={'container'}>
             <Header/>
             <form>
-                <CalculatorForm placeholder="Наименование камня"/>
+                <label>Вид камня</label>
                 <select className={'port_select'} value={myCar} onChange={handleChange}>
                     <option value="Гранит">Гранит</option>
                     <option value="Мрамор">Мрамор</option>
@@ -60,9 +60,11 @@ function App() {
                 </select>
                 <label>Геометрия</label>
                 <CalculatorForm placeholder="Толщина, мм"/>
+                <label>Кол-во товара в м2</label>
                 <CalculatorForm placeholder="Объем, м2"/>
                 <label>Цена завода за м2</label>
                 <CalculatorForm placeholder="Цена"/>
+                <label>Валюта</label>
                 <select className={'port_select'} value={myCar} onChange={handleChange}>
                     <option value="$">$</option>
                     <option value="€">€</option>
