@@ -43,7 +43,7 @@ function App() {
             <Header/>
             <form>
                 <label><strong>Вид камня</strong></label>
-                <select className={'port_select'} value={myCar} onChange={handleChange}>
+                <select value={myCar} onChange={handleChange}>
                     <option value="Гранит">Гранит</option>
                     <option value="Мрамор">Мрамор</option>
                     <option value="Лабрадорит">Лабрадорит</option>
@@ -65,13 +65,13 @@ function App() {
                 <label><strong>Цена завода за м2</strong></label>
                 <CalculatorForm placeholder="Цена"/>
                 <label><strong>Валюта</strong></label>
-                <select className={'port_select'} value={myCar} onChange={handleChange}>
+                <select value={myCar} onChange={handleChange}>
                     <option value="$">$</option>
                     <option value="€">€</option>
                     <option value="₽">₽</option>
                 </select>
                 <label><strong>Порт отгрузки</strong></label>
-                <select className={'port_select'} value={myCar} onChange={handleChange}>
+                <select value={myCar} onChange={handleChange}>
                     <option value="Xiamen">Xiamen</option>
                     <option value="Wuhan">Wuhan</option>
                     <option value="Mundra">Mundra</option>
@@ -86,7 +86,7 @@ function App() {
                     <option value="Vitoria">Vitoria</option>
                 </select>
                 <label><strong>Место доставки</strong></label>
-                <select className={'port_select'} value={myCar} onChange={handleChange}>
+                <select value={myCar} onChange={handleChange}>
                     <option value="Владикавказ">Владикавказ</option>
                     <option value="Новороссийск">Новороссийск</option>
                     <option value="Санкт-Петербург">Санкт-Петербург</option>

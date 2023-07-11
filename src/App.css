@@ -53,11 +53,12 @@ input{
     color: black;
 }
 
-.port_select{
+select{
     width:100%;
-    height: 50px;
+    height: 55px;
+
     border-radius: 5px;
-    border: 1px solid gray;
+    border: 1px solid black;
     padding-left: 15px;
 
     font-size: 18px;
