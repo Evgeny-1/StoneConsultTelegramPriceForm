@@ -9,36 +9,6 @@ body{
     background-position: top;
 }
 
-.container{
-    width: 1140px;
-    margin: auto;
-}
-
-@media screen and (max-width:1140px) {
-    .container{
-        width: 996px;
-    }
-}
-
-@media screen and (max-width:996px) {
-    .container{
-        width: 768px;
-    }
-}
-
-@media screen and (max-width:768px) {
-    .container{
-        width: 576px;
-    }
-}
-
-@media screen and (max-width:576px) {
-    .container {
-        width: 90%;
-        padding: 0px 1rem;
-    }
-}
-
 label{
     color: lightcyan;
 }
