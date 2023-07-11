@@ -8,8 +8,13 @@ const Header = () => {
 
     return (
         <div className={'header_container'}>
-            <img src={require('../../Images/StoneConsult.png')} alt={"Logo"} className="logo__img"/>
-            <span className="caption">StoneConsult</span>
+            <div className={'A'}>
+                <img src={require('../../Images/StoneConsult.png')} alt={"Logo"} className="logo__img"/>
+            </div>
+            <div className={'B'}>
+                <label>StoneConsult</label>
+            </div>
+
         </div>
     );
 };

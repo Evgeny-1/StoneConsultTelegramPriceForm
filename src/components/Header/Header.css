@@ -1,19 +1,23 @@
 .header_container{
     display: grid;
-    grid-template-columns: 15% 90%;
+    grid-template-areas:    "f b . . . . . ."
+                            "f i . . . . . ."
+                            "f o . . . . . .";
     background-color: gray;
-    border-radius: 10px;
-    justify-items: start;
-    align-items: end;
+    border-radius: 5px;
 }
 
 .logo__img {
-    width: 45px;
+    width: 50px;
     border-radius: 5px;
     transition: 0.3s;
 }
 
-.caption{
-    font-size: 14px;
-    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+.A{
+    grid-area: f;
+}
+
+.B{
+    grid-area: i;
+    justify-items: start;
 }
