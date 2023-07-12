@@ -1,11 +1,13 @@
 import './App.css';
 import './utilites.css';
+
 import React, {useState} from "react";
 import {useEffect} from "react";
 import {useTelegram} from "./hooks/useTelegram";
-import Header from "./components/Header/Header";
 import {Route, Routes} from 'react-router-dom';
-import CalculatorForm from "./components/InputCalculatorForm/InputCalculatorForm";
+
+import Header from "./components/Header/Header";
+import InputForm from "./components/InputForm/InputForm";
 
 
 function App() {
@@ -19,60 +21,63 @@ function App() {
         e.preventDefault();
     };
 
-    const [inputs, setInputs] = useState({});
-
-    const handleChangee = (event) => {
-        const name = event.target.name;
-        const value = event.target.value;
-        setInputs(values => ({...values, [name]: value}))
+    const [stone, setStone] = useState("None");
+    const handleChangeStone = (event) => {
+        setStone(event.target.value)
     }
 
-    const handleSubmitt = (event) => {
-        event.preventDefault();
-        alert(inputs);
+    const [currency, setCurrency] = useState("None");
+    const handleChangeCurrency = (event) => {
+        setCurrency(event.target.value)
     }
 
+    const [portOfShipment, setPortOfShipment] = useState("None");
+    const handleChangePortOfShipment = (event) => {
+        setPortOfShipment(event.target.value)
+    }
 
-    const [myCar, setMyCar] = useState("Volvo");
-
-    const handleChange = (event) => {
-        setMyCar(event.target.value)
+    const [pointOfDelivery, setPointOfDelivery] = useState("None");
+    const handleChangePointOfDelivery = (event) => {
+        setPointOfDelivery(event.target.value)
     }
 
     return (
         <div className={'container'}>
             <Header/>
             <form>
-                <label><strong>Вид камня</strong></label>
-                <select value={myCar} onChange={handleChange}>
-                    <option value="Гранит">Гранит</option>
-                    <option value="Мрамор">Мрамор</option>
-                    <option value="Лабрадорит">Лабрадорит</option>
-                    <option value="Кварц">Кварц</option>
-                    <option value="Кварцит">Кварцит</option>
-                    <option value="Известняк">Известняк</option>
-                    <option value="Травертин">Травертин</option>
-                    <option value="Сланец">Сланец</option>
-                    <option value="Песчанник">Песчанник</option>
-                    <option value="Оникс">Оникс</option>
-                    <option value="Базальт">Базальт</option>
-                    <option value="Аметист">Аметист</option>
-                    <option value="Агат">Агат</option>
+                <label><strong>Type of stone</strong></label>
+                <select value={stone} onChange={handleChangeStone}>
+                    <option value="None">None</option>
+                    <option value="Granite">Granite</option>
+                    <option value="Marble">Marble</option>
+                    <option value="Labrador">Labrador</option>
+                    <option value="Quartz">Quartz</option>
+                    <option value="Quartzite">Quartzite</option>
+                    <option value="Limestone">Limestone</option>
+                    <option value="Travertine">Travertine</option>
+                    <option value="Slate">Slate</option>
+                    <option value="Sandstone">Sandstone</option>
+                    <option value="Onyx">Onyx</option>
+                    <option value="Basalt">Basalt</option>
+                    <option value="Amethyst">Amethyst</option>
+                    <option value="Agate">Agate</option>
                 </select>
-                <label><strong>Геометрия</strong></label>
-                <CalculatorForm placeholder="Толщина, мм"/>
-                <label><strong>Кол-во товара в м2</strong></label>
-                <CalculatorForm placeholder="Объем, м2"/>
-                <label><strong>Цена завода за м2</strong></label>
-                <CalculatorForm placeholder="Цена"/>
-                <label><strong>Валюта</strong></label>
-                <select value={myCar} onChange={handleChange}>
+                <label><strong>Geometry(Thick mm)</strong></label>
+                <InputForm placeholder="Thick, mm"/>
+                <label><strong>Quantity of goods in m2</strong></label>
+                <InputForm placeholder="Valume, m2"/>
+                <label><strong>Factory price per m2</strong></label>
+                <InputForm placeholder="Price"/>
+                <label><strong>Currency</strong></label>
+                <select value={currency} onChange={handleChangeCurrency}>
+                    <option value="None">None</option>
                     <option value="$">$</option>
                     <option value="€">€</option>
                     <option value="₽">₽</option>
                 </select>
-                <label><strong>Порт отгрузки</strong></label>
-                <select value={myCar} onChange={handleChange}>
+                <label><strong>Port of shipment</strong></label>
+                <select value={portOfShipment} onChange={handleChangePortOfShipment}>
+                    <option value="None">None</option>
                     <option value="Xiamen">Xiamen</option>
                     <option value="Wuhan">Wuhan</option>
                     <option value="Mundra">Mundra</option>
@@ -86,12 +91,13 @@ function App() {
                     <option value="Stambul">Stambul</option>
                     <option value="Vitoria">Vitoria</option>
                 </select>
-                <label><strong>Место доставки</strong></label>
-                <select value={myCar} onChange={handleChange}>
-                    <option value="Владикавказ">Владикавказ</option>
-                    <option value="Новороссийск">Новороссийск</option>
-                    <option value="Санкт-Петербург">Санкт-Петербург</option>
-                    <option value="Москва">Москва</option>
+                <label><strong>Point of delivery</strong></label>
+                <select value={pointOfDelivery} onChange={handleChangePointOfDelivery}>
+                    <option value="None">None</option>
+                    <option value="Vladikavkaz">Vladikavkaz</option>
+                    <option value="Novorossiysk">Novorossiysk</option>
+                    <option value="Saint-Petersburg">Saint-Petersburg</option>
+                    <option value="Moscow">Moscow</option>
                 </select>
             </form>
 

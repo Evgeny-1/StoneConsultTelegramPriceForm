@@ -1,8 +1,8 @@
 import React from 'react';
 import { useState } from "react";
-import "./InputCalculatorForm.css"
+import "./InputForm.css"
 
-const InputCalculatorForm = (props) => {
+const InputForm = (props) => {
     const [focused, setFocused] = useState(false);
     const { label, errorMessage, onChange, id, ...inputProps } = props;
 
@@ -27,4 +27,4 @@ const InputCalculatorForm = (props) => {
     );
 };
 
-export default InputCalculatorForm;
+export default InputForm;
