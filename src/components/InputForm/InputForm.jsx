@@ -13,6 +13,14 @@ const InputForm = (props) => {
 
     const {tg} = useTelegram();
 
+
+    const onSendData = useCallback(() => {
+        const data = {
+            focused
+        }
+        tg.sendData(JSON.stringify(data));
+    }, [focused])
+
     useEffect(() => {
         tg.onEvent('mainButtonClicked', onSendData)
         return () => {
@@ -26,7 +34,7 @@ const InputForm = (props) => {
         } else {
             tg.MainButton.show();
         }
-    }, [country, street])
+    }, [focused])
 
     return (
         <div className="formInput">
