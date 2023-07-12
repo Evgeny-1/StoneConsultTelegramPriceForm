@@ -4,22 +4,11 @@ import './utilites.css';
 import React, {useState} from "react";
 import {useEffect} from "react";
 import {useTelegram} from "./hooks/useTelegram";
-import {Route, Routes} from 'react-router-dom';
 
 import Header from "./components/Header/Header";
 import InputForm from "./components/InputForm/InputForm";
 
-
 function App() {
-    const {onToggleButton, tg} = useTelegram();
-
-    useEffect(() => {
-        tg.ready();
-    }, []);
-
-    const handleSubmit = (e) => {
-        e.preventDefault();
-    };
 
     const [stone, setStone] = useState("None");
     const handleChangeStone = (event) => {
@@ -40,6 +29,11 @@ function App() {
     const handleChangePointOfDelivery = (event) => {
         setPointOfDelivery(event.target.value)
     }
+
+    const {onToggleButton, tg} = useTelegram();
+    useEffect(() => {
+        tg.ready();
+    }, []);
 
     return (
         <div className={'container'}>
@@ -100,13 +94,6 @@ function App() {
                     <option value="Moscow">Moscow</option>
                 </select>
             </form>
-
-            {/*<Routes>*/}
-
-            {/*  <Route index element={<ProductList />}/>*/}
-            {/* <Route path={'form'} element={<Form />}/>*/}
-
-            {/*</Routes>*/}
         </div>
     );
 }
