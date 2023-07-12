@@ -51,13 +51,13 @@ const InputForm = (props) => {
     // }, [onSendData])
 
     useEffect(() => {
-        if(stone !== "None"
+        if(stone === "None"
             || !thick
             || !volume
             || !price
-            || !currency
-            || portOfShipment !== "None"
-            || pointOfDelivery !== "None") {
+            || currency === "None"
+            || portOfShipment === "None"
+            || pointOfDelivery === "None") {
             tg.MainButton.hide();
         } else {
             tg.MainButton.show();
