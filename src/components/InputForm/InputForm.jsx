@@ -55,7 +55,7 @@ const InputForm = (props) => {
             || !thick
             || !volume
             || !price
-            || currency !== "None"
+            || !currency
             || portOfShipment !== "None"
             || pointOfDelivery !== "None") {
             tg.MainButton.hide();
