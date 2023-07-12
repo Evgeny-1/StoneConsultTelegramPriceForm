@@ -14,17 +14,20 @@ const InputForm = (props) => {
 
     const [thick, setThick] = useState('');
     const handleChangeThick = (e) => {
-        setThick(e.target.value)
+        const result = e.target.value.replace(/\D/g, '');
+        setThick(result)
     }
 
     const [volume, setVolume] = useState('');
     const handleChangeVolume = (e) => {
-        setVolume(e.target.value)
+        const result = e.target.value.replace(/\D/g, '');
+        setVolume(result)
     }
 
     const [price, setPrice] = useState('');
     const handleChangePrice = (e) => {
-        setPrice(e.target.value)
+        const result = e.target.value.replace(/\D/g, '');
+        setPrice(result)
     }
 
     const [currency, setCurrency] = useState("None");
@@ -105,21 +108,21 @@ const InputForm = (props) => {
                 </select>
                 <label><strong>Geometry(Thick mm)</strong></label>
                 <input
-                    type="number"
+                    type="text"
                     placeholder={'Thick, mm'}
                     value={thick}
                     onChange={handleChangeThick}
                 />
                 <label><strong>Quantity of goods in m2</strong></label>
                 <input
-                    type="number"
+                    type="text"
                     placeholder={'Volume, m2'}
                     value={volume}
                     onChange={handleChangeVolume}
                 />
                 <label><strong>Factory price per m2</strong></label>
                 <input
-                    type="number"
+                    type="text"
                     placeholder={'Price'}
                     value={price}
                     onChange={handleChangePrice}
