@@ -1,7 +1,6 @@
 import React from 'react';
 import { useCallback, useEffect, useState } from "react";
 import {useTelegram} from "../../hooks/useTelegram";
-import "./InputForm.css"
 
 const InputForm = (props) => {
 

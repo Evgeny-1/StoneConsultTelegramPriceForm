@@ -1,7 +1,0 @@
-input:invalid[focused="true"]{
-
-}
-
-input:invalid[focused="true"] ~ span{
-
-}

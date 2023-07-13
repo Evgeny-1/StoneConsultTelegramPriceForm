@@ -6,7 +6,7 @@ import {useEffect} from "react";
 import {useTelegram} from "./hooks/useTelegram";
 
 import Header from "./components/Header/Header";
-import InputForm from "./components/InputForm/InputForm";
+import InputForm from "./components/PriceForm/InputForm";
 
 function App() {
 
