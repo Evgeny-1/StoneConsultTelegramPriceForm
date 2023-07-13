@@ -44,6 +44,21 @@ const PriceForm = (props) => {
         setPointOfDelivery(event.target.value)
     }
 
+    {/* SEND JSON FILE ON SERVER APP ------> START */}
+    const onSendData = useCallback(() => {
+        const data = {
+            stone,
+            thick,
+            volume,
+            price,
+            currency,
+            portOfShipment,
+            pointOfDelivery
+        }
+        tg.sendData(JSON.stringify(data));
+    }, [stone, thick, volume, price, currency, portOfShipment, pointOfDelivery])
+    {/* SEND JSON FILE ON SERVER APP ------> START */}
+
     {/* WORK WITH MAIN BUTTON ------> START */}
     useEffect(() => {
         tg.onEvent('mainButtonClicked', onSendData)
@@ -72,18 +87,6 @@ const PriceForm = (props) => {
         })
     }, [])
     {/* WORK WITH MAIN BUTTON ------> END */}
-
-    {/* SEND JSON FILE ON SERVER APP ------> START */}
-    const onSendData = useCallback(() => {
-        const data = {
-            stone,
-            currency,
-            portOfShipment,
-            pointOfDelivery
-        }
-        tg.sendData(JSON.stringify(data));
-    }, [stone, currency, portOfShipment, pointOfDelivery])
-    {/* SEND JSON FILE ON SERVER APP ------> START */}
 
     return (
         <div>
