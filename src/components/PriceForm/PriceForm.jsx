@@ -56,7 +56,7 @@ const PriceForm = (props) => {
     const onSendData = useCallback(() => {
         const data = {
             queryId,
-            stone,
+            thick,
         }
         fetch('http://46.161.52.179:8000/web-data', {
             method: 'POST',
@@ -65,7 +65,7 @@ const PriceForm = (props) => {
             },
             body: JSON.stringify(data)
         })
-    }, [stone])
+    }, [thick])
 
     {/* SEND JSON FILE ON SERVER APP ------> START */}
 
@@ -78,18 +78,12 @@ const PriceForm = (props) => {
     }, [onSendData])
 
     useEffect(() => {
-        if(stone === "None"
-            || !thick
-            || !volume
-            || !price
-            || currency === "None"
-            || portOfShipment === "None"
-            || pointOfDelivery === "None") {
+        if(stone === "None") {
             tg.MainButton.hide();
         } else {
             tg.MainButton.show();
         }
-    }, [stone, thick, volume, price, currency, portOfShipment, pointOfDelivery])
+    }, [thick])
 
     useEffect(() => {
         tg.MainButton.setParams({
