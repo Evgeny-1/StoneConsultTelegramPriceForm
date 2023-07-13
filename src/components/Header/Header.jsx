@@ -11,7 +11,7 @@ const Header = () => {
                 <img src={require('../../Images/StoneConsult.png')} alt={"Logo"} className="logo__img"/>
             </div>
             <div className={'B'}>
-                <label className={'logo'}><strong>StoneConsult {user?.username}</strong></label>
+                <label className={'logo'}><strong>StoneConsult gf{user?.username}</strong></label>
             </div>
             <div className={'C'}>
                 <hr className="hr-horizontal-gradient"/>
