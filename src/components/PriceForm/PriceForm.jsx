@@ -83,7 +83,7 @@ const PriceForm = (props) => {
 
     useEffect(() => {
         tg.MainButton.setParams({
-            text: 'Calculate'
+            text: 'Offer'
         })
     }, [])
     {/* WORK WITH MAIN BUTTON ------> END */}
