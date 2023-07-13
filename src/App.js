@@ -6,7 +6,7 @@ import {useEffect} from "react";
 import {useTelegram} from "./hooks/useTelegram";
 
 import Header from "./components/Header/Header";
-import InputForm from "./components/PriceForm/InputForm";
+import PriceForm from "./components/PriceForm/PriceForm";
 
 function App() {
 
@@ -19,7 +19,7 @@ function App() {
     return (
         <div className={'container'}>
             <Header/>
-            <InputForm />
+            <PriceForm />
         </div>
     );
 }

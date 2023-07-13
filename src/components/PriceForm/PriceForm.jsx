@@ -2,7 +2,7 @@ import React from 'react';
 import { useCallback, useEffect, useState } from "react";
 import {useTelegram} from "../../hooks/useTelegram";
 
-const InputForm = (props) => {
+const PriceForm = (props) => {
 
     const {tg} = useTelegram();
 
@@ -45,12 +45,12 @@ const InputForm = (props) => {
     }
 
     {/* WORK WITH MAIN BUTTON ------> START */}
-    // useEffect(() => {
-    //     tg.onEvent('mainButtonClicked', onSendData)
-    //     return () => {
-    //         tg.offEvent('mainButtonClicked', onSendData)
-    //     }
-    // }, [onSendData])
+    useEffect(() => {
+        tg.onEvent('mainButtonClicked', onSendData)
+        return () => {
+            tg.offEvent('mainButtonClicked', onSendData)
+        }
+    }, [onSendData])
 
     useEffect(() => {
         if(stone === "None"
@@ -74,15 +74,15 @@ const InputForm = (props) => {
     {/* WORK WITH MAIN BUTTON ------> END */}
 
     {/* SEND JSON FILE ON SERVER APP ------> START */}
-    // const onSendData = useCallback(() => {
-    //     const data = {
-    //         stone,
-    //         currency,
-    //         portOfShipment,
-    //         pointOfDelivery
-    //     }
-    //     tg.sendData(JSON.stringify(data));
-    // }, [stone, currency, portOfShipment, pointOfDelivery])
+    const onSendData = useCallback(() => {
+        const data = {
+            stone,
+            currency,
+            portOfShipment,
+            pointOfDelivery
+        }
+        tg.sendData(JSON.stringify(data));
+    }, [stone, currency, portOfShipment, pointOfDelivery])
     {/* SEND JSON FILE ON SERVER APP ------> START */}
 
     return (
@@ -162,4 +162,4 @@ const InputForm = (props) => {
     );
 };
 
-export default InputForm;
+export default PriceForm;
