@@ -4,7 +4,7 @@ import {useTelegram} from "../../hooks/useTelegram";
 
 const PriceForm = (props) => {
 
-    const {tg} = useTelegram();
+    const {tg, queryId} = useTelegram();
 
     const [stone, setStone] = useState("None");
     const handleChangeStone = (event) => {
@@ -45,6 +45,20 @@ const PriceForm = (props) => {
     }
 
     {/* SEND JSON FILE ON SERVER APP ------> START */}
+    // const onSendData = useCallback(() => {
+    //     const data = {
+    //         stone,
+    //         thick,
+    //         volume,
+    //         price,
+    //         currency,
+    //         portOfShipment,
+    //         pointOfDelivery,
+    //         queryId,
+    //     }
+    //     tg.sendData(JSON.stringify(data));
+    // }, [stone, thick, volume, price, currency, portOfShipment, pointOfDelivery])
+
     const onSendData = useCallback(() => {
         const data = {
             stone,
@@ -53,10 +67,18 @@ const PriceForm = (props) => {
             price,
             currency,
             portOfShipment,
-            pointOfDelivery
+            pointOfDelivery,
+            queryId,
         }
-        tg.sendData(JSON.stringify(data));
+        fetch('http://46.161.52.179:8000/web-data', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(data)
+        })
     }, [stone, thick, volume, price, currency, portOfShipment, pointOfDelivery])
+
     {/* SEND JSON FILE ON SERVER APP ------> START */}
 
     {/* WORK WITH MAIN BUTTON ------> START */}
