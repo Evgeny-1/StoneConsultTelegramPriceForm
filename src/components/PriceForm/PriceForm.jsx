@@ -118,21 +118,21 @@ const PriceForm = (props) => {
                 </select>
                 <label><strong>Geometry(Thick mm)</strong></label>
                 <input
-                    type="number"
+                    type="text"
                     placeholder={'Thick, mm'}
                     value={thick}
                     onChange={handleChangeThick}
                 />
                 <label><strong>Quantity of goods in m2</strong></label>
                 <input
-                    type="number"
+                    type="text"
                     placeholder={'Volume, m2'}
                     value={volume}
                     onChange={handleChangeVolume}
                 />
                 <label><strong>Factory price per m2</strong></label>
                 <input
-                    type="number"
+                    type="text"
                     placeholder={'Price'}
                     value={price}
                     onChange={handleChangePrice}
