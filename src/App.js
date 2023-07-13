@@ -10,7 +10,7 @@ import PriceForm from "./components/PriceForm/PriceForm";
 
 function App() {
 
-    const {onToggleButton, tg} = useTelegram();
+    const {tg} = useTelegram();
 
     useEffect(() => {
         tg.ready();
