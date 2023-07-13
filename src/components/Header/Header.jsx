@@ -3,7 +3,7 @@ import {useTelegram} from "../../hooks/useTelegram";
 import './Header.css';
 
 const Header = () => {
-    const {user, onClose} = useTelegram();
+    const {user} = useTelegram();
 
     return (
         <div className={'header_container'}>
@@ -11,7 +11,8 @@ const Header = () => {
                 <img src={require('../../Images/StoneConsult.png')} alt={"Logo"} className="logo__img"/>
             </div>
             <div className={'B'}>
-                <label className={'logo'}><strong>StoneConsult gf{user?.username}</strong></label>
+                <label className={'logo'}><strong>StoneConsult </strong></label>
+                <span>{user?.username}</span>
             </div>
             <div className={'C'}>
                 <hr className="hr-horizontal-gradient"/>
