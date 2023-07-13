@@ -45,18 +45,16 @@ const PriceForm = (props) => {
     }
 
     {/* SEND JSON FILE ON SERVER APP ------> START */}
-    // const onSendData = useCallback(() => {
-    //     const data = {
-    //         stone,
-    //         queryId,
-    //     }
-    //     tg.sendData(JSON.stringify(data));
-    // }, [stone])
-
     const onSendData = useCallback(() => {
         const data = {
             queryId,
+            stone,
             thick,
+            volume,
+            price,
+            currency,
+            portOfShipment,
+            pointOfDelivery,
         }
         fetch('http://46.161.52.179:8000/web-data', {
             method: 'POST',
@@ -65,7 +63,7 @@ const PriceForm = (props) => {
             },
             body: JSON.stringify(data)
         })
-    }, [thick])
+    }, [stone, thick, volume, price, currency, portOfShipment, pointOfDelivery])
 
     {/* SEND JSON FILE ON SERVER APP ------> START */}
 
@@ -78,12 +76,18 @@ const PriceForm = (props) => {
     }, [onSendData])
 
     useEffect(() => {
-        if(stone === "None") {
+        if(stone === "None"
+            || !thick
+            || !volume
+            || !price
+            || currency === "None"
+            || portOfShipment === "None"
+            || pointOfDelivery === "None") {
             tg.MainButton.hide();
         } else {
             tg.MainButton.show();
         }
-    }, [thick])
+    }, [stone, thick, volume, price, currency, portOfShipment, pointOfDelivery])
 
     useEffect(() => {
         tg.MainButton.setParams({
