@@ -47,16 +47,12 @@ const PriceForm = (props) => {
     {/* SEND JSON FILE ON SERVER APP ------> START */}
     const onSendData = useCallback(() => {
         const data = {
-            stone,
             thick,
             volume,
             price,
-            currency,
-            portOfShipment,
-            pointOfDelivery,
         }
         tg.sendData(JSON.stringify(data));
-    }, [stone, thick, volume, price, currency, portOfShipment, pointOfDelivery])
+    }, [thick, volume, price,])
 
     // const onSendData = useCallback(() => {
     //     const data = {
