@@ -45,27 +45,27 @@ const PriceForm = (props) => {
     }
 
     {/* SEND JSON FILE ON SERVER APP ------> START */}
-    const onSendData = useCallback(() => {
-        const data = {
-            stone,
-            queryId,
-        }
-        tg.sendData(JSON.stringify(data));
-    }, [stone])
-
     // const onSendData = useCallback(() => {
     //     const data = {
-    //         queryId,
     //         stone,
+    //         queryId,
     //     }
-    //     fetch('http://46.161.52.179:8000/web-data', {
-    //         method: 'POST',
-    //         headers: {
-    //             'Content-Type': 'application/json',
-    //         },
-    //         body: JSON.stringify(data)
-    //     })
+    //     tg.sendData(JSON.stringify(data));
     // }, [stone])
+
+    const onSendData = useCallback(() => {
+        const data = {
+            queryId,
+            stone,
+        }
+        fetch('http://46.161.52.179:8000/web-data', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(data)
+        })
+    }, [stone])
 
     {/* SEND JSON FILE ON SERVER APP ------> START */}
 
