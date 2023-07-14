@@ -55,6 +55,19 @@ const PriceForm = (props) => {
         window.Telegram.WebApp.sendData(JSON.stringify(data))
     }, [thick, volume, price])
 
+    useEffect(() => {
+        Telegram.WebApp.onEvent('mainButtonClicked', () => {
+            Telegram.WebApp.MainButton.text = 'Clicked!';
+
+            try {
+                Telegram.WebApp.sendData(JSON.stringify({ thick }));
+                setDebug(`Sent`);
+            } catch (e) {
+                setDebug(`${e}, ${JSON.stringify(e)}`)
+            }
+        })
+    }, [thick])
+
     // const onSendData = useCallback(() => {
     //     const data = {
     //         stone: stone,
