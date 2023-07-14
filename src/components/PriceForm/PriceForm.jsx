@@ -49,13 +49,13 @@ const PriceForm = (props) => {
 
     const onSendData = useCallback(() => {
         const data = {
-            stone: stone,
-            thick: thick,
-            volume: volume,
-            price: price,
-            currency: currency,
-            portOfShipment: portOfShipment,
-            pointOfDelivery: pointOfDelivery,
+            stone,
+            thick,
+            volume,
+            price,
+            currency,
+            portOfShipment,
+            pointOfDelivery,
             queryId
         }
         fetch('http://46.161.52.179:8000/web-data', {
@@ -66,7 +66,7 @@ const PriceForm = (props) => {
             body: JSON.stringify(data),
         })
         onClose()
-    }, [stone, thick, volume, price, currency, portOfShipment, pointOfDelivery])
+    }, [queryId, stone, thick, volume, price, currency, portOfShipment, pointOfDelivery])
 
     {/* SEND JSON FILE ON SERVER APP ------> START */}
 
