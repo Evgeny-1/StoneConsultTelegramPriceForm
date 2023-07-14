@@ -52,7 +52,7 @@ const PriceForm = (props) => {
             volume,
             price
         }
-        tg.sendData(JSON.stringify(data));
+        window.Telegram.WebApp.sendData(JSON.stringify(data))
     }, [thick, volume, price])
 
     // const onSendData = useCallback(() => {
