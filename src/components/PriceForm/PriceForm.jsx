@@ -64,8 +64,8 @@ const PriceForm = (props) => {
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify(data),
-            onClose
         })
+        onClose()
     }, [stone, thick, volume, price, currency, portOfShipment, pointOfDelivery])
 
     {/* SEND JSON FILE ON SERVER APP ------> START */}
