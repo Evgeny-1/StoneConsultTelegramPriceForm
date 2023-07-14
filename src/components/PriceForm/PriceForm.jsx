@@ -4,7 +4,7 @@ import {useCallback, useEffect} from "react";
 
 const PriceForm = (props) => {
 
-    const {tg, queryId} = useTelegram();
+    const {tg, queryId, onClose} = useTelegram();
 
     const [stone, setStone] = useState("None");
     const handleChangeStone = (event) => {
@@ -52,21 +52,9 @@ const PriceForm = (props) => {
             volume,
             price
         }
-        window.Telegram.WebApp.sendData(JSON.stringify(data))
+        tg.sendData(JSON.stringify(data));
+        onClose();
     }, [thick, volume, price])
-
-    useEffect(() => {
-        Telegram.WebApp.onEvent('mainButtonClicked', () => {
-            Telegram.WebApp.MainButton.text = 'Clicked!';
-
-            try {
-                Telegram.WebApp.sendData(JSON.stringify({ thick }));
-                setDebug(`Sent`);
-            } catch (e) {
-                setDebug(`${e}, ${JSON.stringify(e)}`)
-            }
-        })
-    }, [thick])
 
     // const onSendData = useCallback(() => {
     //     const data = {
