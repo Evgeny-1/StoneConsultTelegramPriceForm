@@ -74,6 +74,9 @@ const PriceForm = (props) => {
     useEffect(() => {
         tg.onEvent('mainButtonClicked', onSendData)
         return () => {
+            tg,
+                 tg.initDataUnsafe?.user,
+                 tg.initDataUnsafe?.query_id,
             tg.offEvent('mainButtonClicked', onSendData)
         }
     }, [onSendData])
