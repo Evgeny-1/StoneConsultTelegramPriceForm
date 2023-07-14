@@ -46,35 +46,27 @@ const PriceForm = (props) => {
 
     {/* SEND JSON FILE ON SERVER APP ------> START */}
 
+
     const onSendData = useCallback(() => {
         const data = {
-            thick,
-            volume,
-            price
+            stone: stone,
+            thick: thick,
+            volume: volume,
+            price: price,
+            currency: currency,
+            portOfShipment: portOfShipment,
+            pointOfDelivery: pointOfDelivery,
+            queryId
         }
-        tg.sendData(JSON.stringify(data));
-        onClose();
-    }, [thick, volume, price])
-
-    // const onSendData = useCallback(() => {
-    //     const data = {
-    //         stone: stone,
-    //         thick: thick,
-    //         volume: volume,
-    //         price: price,
-    //         currency: currency,
-    //         portOfShipment: portOfShipment,
-    //         pointOfDelivery: pointOfDelivery,
-    //         queryId
-    //     }
-    //     fetch('http://46.161.52.179:8000/web-data', {
-    //         method: 'POST',
-    //         headers: {
-    //             'Content-Type': 'application/json',
-    //         },
-    //         body: JSON.stringify(data)
-    //     })
-    // }, [stone, thick, volume, price, currency, portOfShipment, pointOfDelivery])
+        fetch('http://46.161.52.179:8000/web-data', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(data),
+            onClose
+        })
+    }, [stone, thick, volume, price, currency, portOfShipment, pointOfDelivery])
 
     {/* SEND JSON FILE ON SERVER APP ------> START */}
 
