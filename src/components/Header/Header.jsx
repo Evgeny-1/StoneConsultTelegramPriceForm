@@ -12,7 +12,6 @@ const Header = () => {
             </div>
             <div className={'B'}>
                 <label className={'logo'}><strong>StoneConsult </strong></label>
-                <span>{user?.username}</span>
             </div>
             <div className={'C'}>
                 <hr className="hr-horizontal-gradient"/>
