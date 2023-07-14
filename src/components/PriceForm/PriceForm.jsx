@@ -63,10 +63,10 @@ const PriceForm = (props) => {
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify(data),
+            body: JSON.stringify(data)
         })
         onClose()
-    }, [queryId, stone, thick, volume, price, currency, portOfShipment, pointOfDelivery])
+    }, [])
 
     {/* SEND JSON FILE ON SERVER APP ------> START */}
 
@@ -74,12 +74,15 @@ const PriceForm = (props) => {
     useEffect(() => {
         tg.onEvent('mainButtonClicked', onSendData)
         return () => {
-            tg,
-                 tg.initDataUnsafe?.user,
-                 tg.initDataUnsafe?.query_id,
             tg.offEvent('mainButtonClicked', onSendData)
         }
     }, [onSendData])
+
+    useEffect(() => {
+        tg.MainButton.setParams({
+            text: 'OFFER'
+        })
+    }, [])
 
     useEffect(() => {
         if(stone === "None"
@@ -94,12 +97,6 @@ const PriceForm = (props) => {
             tg.MainButton.show();
         }
     }, [stone, thick, volume, price, currency, portOfShipment, pointOfDelivery])
-
-    useEffect(() => {
-        tg.MainButton.setParams({
-            text: 'OFFER'
-        })
-    }, [])
     {/* WORK WITH MAIN BUTTON ------> END */}
 
     return (
