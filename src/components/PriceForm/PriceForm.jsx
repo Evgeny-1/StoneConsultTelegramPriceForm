@@ -55,7 +55,7 @@ const PriceForm = (props) => {
             currency: currency,
             portOfShipment: portOfShipment,
             pointOfDelivery: pointOfDelivery,
-            queryId,
+            queryId
         }
         fetch('http://46.161.52.179:8000/web-data', {
             method: 'POST',
@@ -92,7 +92,7 @@ const PriceForm = (props) => {
 
     useEffect(() => {
         tg.MainButton.setParams({
-            text: 'Offer'
+            text: 'OFFER'
         })
     }, [])
     {/* WORK WITH MAIN BUTTON ------> END */}
