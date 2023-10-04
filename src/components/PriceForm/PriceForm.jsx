@@ -1,20 +1,33 @@
 import React, {useState} from 'react';
 import {useTelegram} from "../../hooks/useTelegram";
+import {variables} from "../../hooks/Variables";
 import {useCallback, useEffect} from "react";
 
 const PriceForm = (props) => {
 
     const {tg, queryId, onClose} = useTelegram();
 
-    const [stone, setStone] = useState("None");
+    const [stone, setStone] = useState([]);
+    const [stoneType, setStoneType] = useState("None");
     const handleChangeStone = (event) => {
-        setStone(event.target.value)
+        setStoneType(event.target.value)
+    }
+
+    const [stoneName, setStoneName] = useState("None");
+    const handleChangeStoneName = (event) => {
+        setStoneName(event.target.value)
     }
 
     const [thick, setThick] = useState('');
     const handleChangeThick = (e) => {
         const result = e.target.value.replace(/\D/g, '');
         setThick(result)
+    }
+
+    const [finishing, setFinishing] = useState([]);
+    const [finishingType, setFinishingType] = useState("None");
+    const handleChangeFinishing = (event) => {
+        setFinishingType(event.target.value)
     }
 
     const [volume, setVolume] = useState('');
@@ -29,48 +42,25 @@ const PriceForm = (props) => {
         setPrice(result)
     }
 
-    const [currency, setCurrency] = useState("None");
+    //
+    const [currency, setCurrency] = useState([]);
+    const [currencyType, setCurrencyType] = useState("None");
     const handleChangeCurrency = (event) => {
-        setCurrency(event.target.value)
+        setCurrencyType(event.target.value)
     }
 
-    const [portOfShipment, setPortOfShipment] = useState("None");
+    const [portOfShipment, setPortOfShipment] = useState([]);
+    const [portOfShipmentType, setPortOfShipmentType] = useState("None");
     const handleChangePortOfShipment = (event) => {
-        setPortOfShipment(event.target.value)
+        setPortOfShipmentType(event.target.value)
     }
 
-    const [pointOfDelivery, setPointOfDelivery] = useState("None");
+    const [portOfDelivery, setPortOfDelivery] = useState([]);
+    const [portOfDeliveryType, setPortOfDeliveryType] = useState("None");
     const handleChangePointOfDelivery = (event) => {
-        setPointOfDelivery(event.target.value)
+        setPortOfDeliveryType(event.target.value)
     }
 
-    {/* SEND JSON FILE ON SERVER APP ------> START */}
-
-
-    const onSendData = useCallback(() => {
-        const data = {
-            stone,
-            thick,
-            volume,
-            price,
-            currency,
-            portOfShipment,
-            pointOfDelivery,
-            queryId
-        }
-        fetch('http://46.161.52.179:8000/web-data', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(data)
-        })
-        onClose()
-    }, [])
-
-    {/* SEND JSON FILE ON SERVER APP ------> START */}
-
-    {/* WORK WITH MAIN BUTTON ------> START */}
     useEffect(() => {
         tg.onEvent('mainButtonClicked', onSendData)
         return () => {
@@ -85,40 +75,101 @@ const PriceForm = (props) => {
     }, [])
 
     useEffect(() => {
-        if(stone === "None"
+        if(stoneType === "None"
             || !thick
             || !volume
             || !price
-            || currency === "None"
-            || portOfShipment === "None"
-            || pointOfDelivery === "None") {
+            || currencyType === "None"
+            || portOfShipmentType === "None"
+            || portOfDeliveryType === "None") {
             tg.MainButton.hide();
         } else {
             tg.MainButton.show();
         }
-    }, [stone, thick, volume, price, currency, portOfShipment, pointOfDelivery])
-    {/* WORK WITH MAIN BUTTON ------> END */}
+    }, [stoneType, thick, volume, price, currencyType, portOfShipmentType, portOfDeliveryType])
+
+
+    useEffect(() => {
+        fetch(variables.API_NGROK_URL + 'Stone')
+            .then(response => response.json())
+            .then(data => {
+                setStone(data)
+            });
+    }, []);
+
+    useEffect(()=>{
+        fetch(variables.API_NGROK_URL + 'Finishing')
+            .then(response => response.json())
+            .then(data => {
+                setFinishing(data)
+            });
+    }, []);
+
+    useEffect(()=>{
+        fetch(variables.API_NGROK_URL + 'Currency')
+            .then(response => response.json())
+            .then(data => {
+                setCurrency(data)
+            });
+    }, []);
+
+    useEffect(()=>{
+        fetch(variables.API_NGROK_URL + 'PortOfShipment')
+            .then(response => response.json())
+            .then(data => {
+                setPortOfShipment(data)
+            });
+    }, []);
+
+    useEffect(()=>{
+        fetch(variables.API_NGROK_URL + 'PortOfDelivery')
+            .then(response => response.json())
+            .then(data => {
+                setPortOfDelivery(data)
+            });
+    }, []);
+
+    const onSendData = useCallback(() => {
+        fetch(variables.API_NGROK_URL+'CommercialRequest', {
+            method: 'POST',
+            headers: {
+                'Accept':'application/json',
+                'Content-Type':'application/json'
+            },
+            body:JSON.stringify({
+                TelegramUserId:queryId,
+                StoneType:stoneType,
+                StoneName:stoneName,
+                GeometryThick:thick,
+                FinishingOfStone:finishingType,
+                QuantityVolume:volume,
+                FactoryPrice:price,
+                CurrencyCharCode:currencyType,
+                PortOfShipment:portOfShipmentType,
+                PortOfDelivery:portOfDeliveryType
+            })
+        }).then(result => result.json())
+            .then((result) => {
+                console.log(result);
+            })
+    }, [queryId, stoneType, stoneName, thick, finishingType, volume, price, currencyType, portOfShipmentType, portOfDeliveryType])
 
     return (
         <div>
             <form>
                 <label><strong>Type of stone</strong></label>
-                <select value={stone} onChange={handleChangeStone}>
-                    <option value="None">None</option>
-                    <option value="Granite">Granite</option>
-                    <option value="Marble">Marble</option>
-                    <option value="Labrador">Labrador</option>
-                    <option value="Quartz">Quartz</option>
-                    <option value="Quartzite">Quartzite</option>
-                    <option value="Limestone">Limestone</option>
-                    <option value="Travertine">Travertine</option>
-                    <option value="Slate">Slate</option>
-                    <option value="Sandstone">Sandstone</option>
-                    <option value="Onyx">Onyx</option>
-                    <option value="Basalt">Basalt</option>
-                    <option value="Amethyst">Amethyst</option>
-                    <option value="Agate">Agate</option>
+                <select value={stoneType} onChange={handleChangeStone}>
+                    {
+                        stone.map((opts, i) => <option>{opts.stoneType}</option>)
+                    }
                 </select>
+                <label><strong>Name of stone</strong></label>
+                <input
+                    type="text"
+                    placeholder={'Name'}
+                    value={stoneName}
+                    onChange={handleChangeStoneName}
+                />
                 <label><strong>Geometry(Thick mm)</strong></label>
                 <input
                     type="text"
@@ -133,6 +184,12 @@ const PriceForm = (props) => {
                     value={volume}
                     onChange={handleChangeVolume}
                 />
+                <label><strong>Type of finishing</strong></label>
+                <select onChange={handleChangeFinishing} value={finishingType}>
+                    {
+                        finishing.map((opts, i) => <option>{opts.finishingName}</option>)
+                    }
+                </select>
                 <label><strong>Factory price per m2</strong></label>
                 <input
                     type="text"
@@ -141,35 +198,22 @@ const PriceForm = (props) => {
                     onChange={handleChangePrice}
                 />
                 <label><strong>Currency</strong></label>
-                <select value={currency} onChange={handleChangeCurrency}>
-                    <option value="None">None</option>
-                    <option value="$">$</option>
-                    <option value="€">€</option>
-                    <option value="₽">₽</option>
+                <select value={currencyType} onChange={handleChangeCurrency}>
+                    {
+                        currency.map((opts, i) => <option>{opts.charCode}</option>)
+                    }
                 </select>
                 <label><strong>Port of shipment</strong></label>
-                <select value={portOfShipment} onChange={handleChangePortOfShipment}>
-                    <option value="None">None</option>
-                    <option value="Xiamen">Xiamen</option>
-                    <option value="Wuhan">Wuhan</option>
-                    <option value="Mundra">Mundra</option>
-                    <option value="Chennai">Chennai</option>
-                    <option value="Ho chi min">Ho chi min</option>
-                    <option value="Carrara">Carrara</option>
-                    <option value="Venezia">Venezia</option>
-                    <option value="Alicante">Alicante</option>
-                    <option value="Lisbon">Lisbon</option>
-                    <option value="Izmir">Izmir</option>
-                    <option value="Stambul">Stambul</option>
-                    <option value="Vitoria">Vitoria</option>
+                <select value={portOfShipmentType} onChange={handleChangePortOfShipment}>
+                    {
+                        portOfShipment.map((opts, i) => <option>{opts.portOfShipmentName}</option>)
+                    }
                 </select>
                 <label><strong>Point of delivery</strong></label>
-                <select value={pointOfDelivery} onChange={handleChangePointOfDelivery}>
-                    <option value="None">None</option>
-                    <option value="Vladikavkaz">Vladikavkaz</option>
-                    <option value="Novorossiysk">Novorossiysk</option>
-                    <option value="Saint-Petersburg">Saint-Petersburg</option>
-                    <option value="Moscow">Moscow</option>
+                <select value={portOfDeliveryType} onChange={handleChangePointOfDelivery}>
+                    {
+                        portOfDelivery.map((opts, i) => <option>{opts.portOfDeliveryName}</option>)
+                    }
                 </select>
             </form>
         </div>
