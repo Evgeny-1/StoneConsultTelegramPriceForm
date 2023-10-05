@@ -142,7 +142,7 @@ const PriceForm = (props) => {
             PortOfShipment:portOfShipmentType,
             PortOfDelivery:portOfDeliveryType,
         }
-        fetch(variables.API_URL+'CommercialRequest', {
+            .fetch(variables.API_NGROK_URL+'CommercialRequest', {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',
