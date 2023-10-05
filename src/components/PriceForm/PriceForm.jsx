@@ -7,8 +7,6 @@ const PriceForm = (props) => {
 
     const {tg, queryId, onClose} = useTelegram();
 
-    const [telegramQueryId, setTelegramQueryId] = useState(queryId)
-
     const [stone, setStone] = useState([]);
     const [stoneType, setStoneType] = useState("");
     const handleChangeStone = (event) => {
@@ -152,8 +150,7 @@ const PriceForm = (props) => {
             .then((result) => {
                 console.log(result);
             })
-    }, [queryId, stoneType, stoneName, thick, finishingType, volume, price, currencyType, portOfShipmentType, portOfDeliveryType],
-    onClose())
+    }, [queryId, stoneType, stoneName, thick, finishingType, volume, price, currencyType, portOfShipmentType, portOfDeliveryType])
 
     useEffect(() => {
         tg.onEvent('mainButtonClicked', onSendData)
