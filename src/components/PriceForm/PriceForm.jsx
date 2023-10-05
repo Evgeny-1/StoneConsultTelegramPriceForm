@@ -13,7 +13,7 @@ const PriceForm = (props) => {
         setStoneType(event.target.value)
     }
 
-    const [stoneName, setStoneName] = useState("");
+    const [stoneName, setStoneName] = useState(queryId);
     const handleChangeStoneName = (event) => {
         setStoneName(event.target.value)
     }
