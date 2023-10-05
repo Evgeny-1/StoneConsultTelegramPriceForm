@@ -159,7 +159,6 @@ const PriceForm = (props) => {
         tg.onEvent('mainButtonClicked', onSendData2)
         return () => {
             tg.offEvent('mainButtonClicked', onSendData2)
-            tg.onClose()
         }
     }, [onSendData2])
 
