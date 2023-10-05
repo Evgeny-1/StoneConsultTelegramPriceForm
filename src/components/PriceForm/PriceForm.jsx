@@ -155,9 +155,9 @@ const PriceForm = (props) => {
     }, [queryId, stoneType, stoneName, thick, finishingType, volume, price, currencyType, portOfShipmentType, portOfDeliveryType])
 
     useEffect(() => {
-        tg.onEvent('mainButtonClicked', onSendData)
+        tg.MainButton.onEvent('mainButtonClicked', onSendData)
         return () => {
-            tg.offEvent('mainButtonClicked', onSendData)
+            tg.MainButton.offEvent('mainButtonClicked', onSendData)
             onClose()
         }
     }, [onSendData])
