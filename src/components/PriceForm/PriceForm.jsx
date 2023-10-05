@@ -224,11 +224,6 @@ const PriceForm = (props) => {
                         portOfDelivery?.map((opts, i) => <option>{opts.portOfDeliveryName}</option>)
                     }
                 </select>
-                {/*<button type="button"*/}
-                {/*        className="btn btn-three"*/}
-                {/*        onClick={() => onSendData2()}*/}
-                {/*>GO!*/}
-                {/*</button>*/}
             </form>
         </div>
     );
