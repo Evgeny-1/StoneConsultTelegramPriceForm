@@ -156,11 +156,12 @@ const PriceForm = (props) => {
     }, [queryId, stoneType,stoneName,thick,finishingType,volume,price,currencyType,portOfShipmentType,portOfDeliveryType])
 
     useEffect(() => {
-        tg.onEvent('mainButtonClicked', onSendData)
+        tg.onEvent('mainButtonClicked', onSendData2)
         return () => {
-            tg.offEvent('mainButtonClicked', onSendData)
+            tg.offEvent('mainButtonClicked', onSendData2)
+            tg.onClose()
         }
-    }, [onSendData])
+    }, [onSendData2])
 
     return (
         <div>
@@ -221,11 +222,11 @@ const PriceForm = (props) => {
                         portOfDelivery?.map((opts, i) => <option>{opts.portOfDeliveryName}</option>)
                     }
                 </select>
-                <button type="button"
-                        className="btn btn-three"
-                        onClick={() => onSendData2()}
-                >GO!
-                </button>
+                {/*<button type="button"*/}
+                {/*        className="btn btn-three"*/}
+                {/*        onClick={() => onSendData2()}*/}
+                {/*>GO!*/}
+                {/*</button>*/}
             </form>
         </div>
     );
