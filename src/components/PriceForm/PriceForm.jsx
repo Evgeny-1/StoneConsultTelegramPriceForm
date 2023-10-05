@@ -114,7 +114,7 @@ const PriceForm = (props) => {
             .then(data => setPortOfDelivery(data))
     }, []);
 
-    const onSendData = useCallback(() => {
+    const onSendData2 = useCallback(() => {
         tg.sendData(JSON.stringify({
             TelegramQueryId:queryId,
             StoneType:stoneType,
@@ -127,9 +127,9 @@ const PriceForm = (props) => {
             PortOfShipment:portOfShipmentType,
             PortOfDelivery:portOfDeliveryType
         }));
-    }, [queryId, stoneType,stoneName,thick,finishingType,volume,price,currencyType,portOfShipmentType,portOfDeliveryType])
+    }, [queryId, stoneType, stoneName, thick, finishingType, volume, price, currencyType, portOfShipmentType, portOfDeliveryType])
 
-    const onSendData2 = useCallback(() => {
+    const onSendData = useCallback(() => {
         fetch(variables.API_URL+'CommercialRequest', {
             method: 'POST',
             headers: {
@@ -152,7 +152,7 @@ const PriceForm = (props) => {
             .then((result) => {
                 console.log(result);
             })
-    }, [queryId, stoneType,stoneName,thick,finishingType,volume,price,currencyType,portOfShipmentType,portOfDeliveryType])
+    }, [queryId, stoneType, stoneName, thick, finishingType, volume, price, currencyType, portOfShipmentType, portOfDeliveryType])
 
     useEffect(() => {
         tg.onEvent('mainButtonClicked', onSendData)
