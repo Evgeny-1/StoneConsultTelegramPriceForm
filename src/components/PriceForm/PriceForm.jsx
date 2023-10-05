@@ -7,13 +7,15 @@ const PriceForm = (props) => {
 
     const {tg, queryId, onClose} = useTelegram();
 
+    const [telegramQueryId, setTelegramQueryId] = useState(queryId)
+
     const [stone, setStone] = useState([]);
     const [stoneType, setStoneType] = useState("");
     const handleChangeStone = (event) => {
         setStoneType(event.target.value)
     }
 
-    const [stoneName, setStoneName] = useState(queryId);
+    const [stoneName, setStoneName] = useState("");
     const handleChangeStoneName = (event) => {
         setStoneName(event.target.value)
     }
@@ -146,7 +148,7 @@ const PriceForm = (props) => {
                 'Content-Type':'application/json'
             },
             body:JSON.stringify({
-                TelegramUserId:queryId,
+                TelegramUserId:telegramQueryId,
                 StoneType:stoneType,
                 StoneName:stoneName,
                 GeometryThick:thick,
