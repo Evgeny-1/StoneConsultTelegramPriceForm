@@ -67,34 +67,34 @@ const PriceForm = (props) => {
         })
     }, [])
 
-    // useEffect(() => {
-    //     if(stoneType === "None"
-    //         || !stoneName
-    //         || !thick
-    //         || !volume
-    //         || finishingType === "None"
-    //         || !price
-    //         || currencyType === "None"
-    //         || portOfShipmentType === "None"
-    //         || portOfDeliveryType === "None") {
-    //         tg.MainButton.hide();
-    //     } else {
-    //         tg.MainButton.show();
-    //     }
-    // }, [stoneType, stoneName, thick, volume, finishingType, price, currencyType, portOfShipmentType, portOfDeliveryType])
-
-
     useEffect(() => {
-        if(
-             !stoneName
+        if(stoneType === "None"
+            || !stoneName
             || !thick
             || !volume
-            || !price) {
+            || finishingType === "None"
+            || !price
+            || currencyType === "None"
+            || portOfShipmentType === "None"
+            || portOfDeliveryType === "None") {
             tg.MainButton.hide();
         } else {
             tg.MainButton.show();
         }
-    }, [stoneName, thick, volume, price])
+    }, [stoneType, stoneName, thick, volume, finishingType, price, currencyType, portOfShipmentType, portOfDeliveryType])
+
+
+    // useEffect(() => {
+    //     if(
+    //          !stoneName
+    //         || !thick
+    //         || !volume
+    //         || !price) {
+    //         tg.MainButton.hide();
+    //     } else {
+    //         tg.MainButton.show();
+    //     }
+    // }, [stoneName, thick, volume, price])
 
     useEffect(() => {
         fetch(variables.API_URL + 'Stone')
