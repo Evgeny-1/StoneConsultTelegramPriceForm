@@ -83,19 +83,6 @@ const PriceForm = (props) => {
         }
     }, [stoneType, stoneName, thick, volume, finishingType, price, currencyType, portOfShipmentType, portOfDeliveryType])
 
-
-    // useEffect(() => {
-    //     if(
-    //          !stoneName
-    //         || !thick
-    //         || !volume
-    //         || !price) {
-    //         tg.MainButton.hide();
-    //     } else {
-    //         tg.MainButton.show();
-    //     }
-    // }, [stoneName, thick, volume, price])
-
     useEffect(() => {
         fetch(variables.API_URL + 'Stone')
             .then(data => data.json())
@@ -140,6 +127,30 @@ const PriceForm = (props) => {
             portOfDeliveryType
         }
         tg.sendData(JSON.stringify(data));
+    }, [queryId, stoneType, stoneName,thick,finishingType,volume,price,currencyType,portOfShipmentType,portOfDeliveryType])
+
+    const onSendData2 = useCallback(() => {
+        const data = {
+            TelegramUserId:queryId,
+            StoneType:stoneType,
+            StoneName:stoneName,
+            GeometryThick:thick,
+            FinishingOfStone:finishingType,
+            QuantityVolume:volume,
+            FactoryPrice:price,
+            CurrencyCharCode:currencyType,
+            PortOfShipment:portOfShipmentType,
+            PortOfDelivery:portOfDeliveryType,
+        }
+        fetch(variables.API_URL+'CommercialRequest', {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body:JSON.stringify(data)
+
+            })
     }, [queryId, stoneType, stoneName,thick,finishingType,volume,price,currencyType,portOfShipmentType,portOfDeliveryType])
 
     // const onSendData = useCallback(() => {
@@ -235,7 +246,7 @@ const PriceForm = (props) => {
                 </select>
                 <button type="button"
                         className="btn btn-three"
-                        onClick={() => onSendData()}
+                        onClick={() => onSendData2()}
                 >GO!
                 </button>
             </form>
