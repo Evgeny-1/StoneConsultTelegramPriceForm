@@ -67,16 +67,25 @@ const PriceForm = (props) => {
         })
     }, [])
 
+    // useEffect(() => {
+    //     if(stoneType === "None"
+    //         || !stoneName
+    //         || !thick
+    //         || !volume
+    //         || finishingType === "None"
+    //         || !price
+    //         || currencyType === "None"
+    //         || portOfShipmentType === "None"
+    //         || portOfDeliveryType === "None") {
+    //         tg.MainButton.hide();
+    //     } else {
+    //         tg.MainButton.show();
+    //     }
+    // }, [stoneType, stoneName, thick, volume, finishingType, price, currencyType, portOfShipmentType, portOfDeliveryType])
+
     useEffect(() => {
-        if(stoneType === "None"
-            || !stoneName
-            || !thick
-            || !volume
-            || finishingType === "None"
-            || !price
-            || currencyType === "None"
-            || portOfShipmentType === "None"
-            || portOfDeliveryType === "None") {
+        if(
+            !stoneName) {
             tg.MainButton.hide();
         } else {
             tg.MainButton.show();
