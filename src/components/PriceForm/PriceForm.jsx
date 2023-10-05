@@ -67,22 +67,34 @@ const PriceForm = (props) => {
         })
     }, [])
 
+    // useEffect(() => {
+    //     if(stoneType === "None"
+    //         || !stoneName
+    //         || !thick
+    //         || !volume
+    //         || finishingType === "None"
+    //         || !price
+    //         || currencyType === "None"
+    //         || portOfShipmentType === "None"
+    //         || portOfDeliveryType === "None") {
+    //         tg.MainButton.hide();
+    //     } else {
+    //         tg.MainButton.show();
+    //     }
+    // }, [stoneType, stoneName, thick, volume, finishingType, price, currencyType, portOfShipmentType, portOfDeliveryType])
+
+
     useEffect(() => {
-        if(stoneType === "None"
-            || !stoneName
+        if(
+             !stoneName
             || !thick
             || !volume
-            || finishingType === "None"
-            || !price
-            || currencyType === "None"
-            || portOfShipmentType === "None"
-            || portOfDeliveryType === "None") {
+            || !price) {
             tg.MainButton.hide();
         } else {
             tg.MainButton.show();
         }
-    }, [stoneType, stoneName, thick, volume, finishingType, price, currencyType, portOfShipmentType, portOfDeliveryType])
-
+    }, [stoneName, thick, volume, price])
 
     useEffect(() => {
         fetch(variables.API_NGROK_URL + 'Stone')
@@ -105,7 +117,7 @@ const PriceForm = (props) => {
     useEffect(()=>{
         fetch(variables.API_NGROK_URL + 'PortOfShipment')
             .then(data => data.json())
-            .then(data => setPortOfShipment(data))
+            .then(data => setPortOfShipment(0))
     }, []);
 
     useEffect(()=>{
