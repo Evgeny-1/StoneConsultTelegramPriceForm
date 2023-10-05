@@ -151,15 +151,13 @@ const PriceForm = (props) => {
             PortOfShipment:portOfShipmentType,
             PortOfDelivery:portOfDeliveryType,
         }
-            .fetch(variables.API_NGROK_URL+'CommercialRequest', {
+            .fetch(variables.API_URL+'CommercialRequest', {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
             },
-            body:JSON.stringify(data)
-
-            })
+            body:JSON.stringify(data)})
     }, [queryId, stoneType, stoneName,thick,finishingType,volume,price,currencyType,portOfShipmentType,portOfDeliveryType])
 
     // const onSendData = useCallback(() => {
