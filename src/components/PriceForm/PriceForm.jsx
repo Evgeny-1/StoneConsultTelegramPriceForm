@@ -8,12 +8,12 @@ const PriceForm = (props) => {
     const {tg, queryId, onClose} = useTelegram();
 
     const [stone, setStone] = useState([]);
-    const [stoneType, setStoneType] = useState("None");
+    const [stoneType, setStoneType] = useState("");
     const handleChangeStone = (event) => {
         setStoneType(event.target.value)
     }
 
-    const [stoneName, setStoneName] = useState("None");
+    const [stoneName, setStoneName] = useState("");
     const handleChangeStoneName = (event) => {
         setStoneName(event.target.value)
     }
@@ -42,7 +42,7 @@ const PriceForm = (props) => {
         setPrice(result)
     }
 
-    //
+
     const [currency, setCurrency] = useState([]);
     const [currencyType, setCurrencyType] = useState("None");
     const handleChangeCurrency = (event) => {
@@ -62,13 +62,6 @@ const PriceForm = (props) => {
     }
 
     useEffect(() => {
-        tg.onEvent('mainButtonClicked', onSendData)
-        return () => {
-            tg.offEvent('mainButtonClicked', onSendData)
-        }
-    }, [onSendData])
-
-    useEffect(() => {
         tg.MainButton.setParams({
             text: 'OFFER'
         })
@@ -76,8 +69,10 @@ const PriceForm = (props) => {
 
     useEffect(() => {
         if(stoneType === "None"
+            || !stoneName
             || !thick
             || !volume
+            || finishingType === "None"
             || !price
             || currencyType === "None"
             || portOfShipmentType === "None"
@@ -86,51 +81,43 @@ const PriceForm = (props) => {
         } else {
             tg.MainButton.show();
         }
-    }, [stoneType, thick, volume, price, currencyType, portOfShipmentType, portOfDeliveryType])
+    }, [stoneType, stoneName, thick, volume, finishingType, price, currencyType, portOfShipmentType, portOfDeliveryType])
 
 
     useEffect(() => {
-        fetch(variables.API_NGROK_URL + 'Stone')
-            .then(response => response.json())
-            .then(data => {
-                setStone(data)
-            });
+        fetch(variables.API_URL + 'Stone')
+            .then(data => data.json())
+            .then(data => setStone(data))
     }, []);
 
     useEffect(()=>{
-        fetch(variables.API_NGROK_URL + 'Finishing')
+        fetch(variables.API_URL + 'Finishing')
             .then(response => response.json())
-            .then(data => {
-                setFinishing(data)
-            });
+            .then(data => setFinishing(data))
     }, []);
 
     useEffect(()=>{
-        fetch(variables.API_NGROK_URL + 'Currency')
-            .then(response => response.json())
-            .then(data => {
-                setCurrency(data)
-            });
+        fetch(variables.API_URL + 'Currency')
+            .then(data => data.json())
+            .then(data => setCurrency(data))
     }, []);
 
     useEffect(()=>{
-        fetch(variables.API_NGROK_URL + 'PortOfShipment')
-            .then(response => response.json())
-            .then(data => {
-                setPortOfShipment(data)
-            });
+        fetch(variables.API_URL + 'PortOfShipment')
+            .then(data => data.json())
+            .then(data => setPortOfShipment(data))
     }, []);
 
     useEffect(()=>{
-        fetch(variables.API_NGROK_URL + 'PortOfDelivery')
-            .then(response => response.json())
-            .then(data => {
-                setPortOfDelivery(data)
-            });
+        fetch(variables.API_URL + 'PortOfDelivery')
+            .then(data => data.json())
+            .then(data => setPortOfDelivery(data))
     }, []);
+
+
 
     const onSendData = useCallback(() => {
-        fetch(variables.API_NGROK_URL+'CommercialRequest', {
+        fetch(variables.API_URL+'CommercialRequest', {
             method: 'POST',
             headers: {
                 'Accept':'application/json',
@@ -154,14 +141,19 @@ const PriceForm = (props) => {
             })
     }, [queryId, stoneType, stoneName, thick, finishingType, volume, price, currencyType, portOfShipmentType, portOfDeliveryType])
 
+    useEffect(() => {
+        tg.onEvent('mainButtonClicked', onSendData)
+        return () => {
+            tg.offEvent('mainButtonClicked', onSendData)
+        }
+    }, [onSendData])
+
     return (
         <div>
             <form>
                 <label><strong>Type of stone</strong></label>
-                <select value={stoneType} onChange={handleChangeStone}>
-                    {
-                        stone.map((opts, i) => <option>{opts.stoneType}</option>)
-                    }
+                <select onChange={handleChangeStone} value={stoneType}>
+                    {stone?.map((opts, i) => <option>{opts.stoneType}</option>)}
                 </select>
                 <label><strong>Name of stone</strong></label>
                 <input
@@ -187,7 +179,7 @@ const PriceForm = (props) => {
                 <label><strong>Type of finishing</strong></label>
                 <select onChange={handleChangeFinishing} value={finishingType}>
                     {
-                        finishing.map((opts, i) => <option>{opts.finishingName}</option>)
+                        finishing?.map((opts, i) => <option>{opts.finishingName}</option>)
                     }
                 </select>
                 <label><strong>Factory price per m2</strong></label>
@@ -200,19 +192,19 @@ const PriceForm = (props) => {
                 <label><strong>Currency</strong></label>
                 <select value={currencyType} onChange={handleChangeCurrency}>
                     {
-                        currency.map((opts, i) => <option>{opts.charCode}</option>)
+                        currency?.map((opts, i) => <option>{opts.charCode}</option>)
                     }
                 </select>
                 <label><strong>Port of shipment</strong></label>
                 <select value={portOfShipmentType} onChange={handleChangePortOfShipment}>
                     {
-                        portOfShipment.map((opts, i) => <option>{opts.portOfShipmentName}</option>)
+                        portOfShipment?.map((opts, i) => <option>{opts.portOfShipmentName}</option>)
                     }
                 </select>
                 <label><strong>Point of delivery</strong></label>
                 <select value={portOfDeliveryType} onChange={handleChangePointOfDelivery}>
                     {
-                        portOfDelivery.map((opts, i) => <option>{opts.portOfDeliveryName}</option>)
+                        portOfDelivery?.map((opts, i) => <option>{opts.portOfDeliveryName}</option>)
                     }
                 </select>
             </form>
