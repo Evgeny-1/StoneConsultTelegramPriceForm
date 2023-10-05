@@ -138,7 +138,7 @@ const PriceForm = (props) => {
                 'Content-Type':'application/json'
             },
             body:JSON.stringify({
-                TelegramUserId:telegramQueryId,
+                TelegramQueryId:queryId,
                 StoneType:stoneType,
                 StoneName:stoneName,
                 GeometryThick:thick,
