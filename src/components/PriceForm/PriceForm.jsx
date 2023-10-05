@@ -139,25 +139,26 @@ const PriceForm = (props) => {
     }, [queryId, stoneType, stoneName,thick,finishingType,volume,price,currencyType,portOfShipmentType,portOfDeliveryType])
 
     const onSendData2 = useCallback(() => {
-        const data = {
-            TelegramUserId:queryId,
-            StoneType:stoneType,
-            StoneName:stoneName,
-            GeometryThick:thick,
-            FinishingOfStone:finishingType,
-            QuantityVolume:volume,
-            FactoryPrice:price,
-            CurrencyCharCode:currencyType,
-            PortOfShipment:portOfShipmentType,
-            PortOfDelivery:portOfDeliveryType,
-        }
-            .fetch(variables.API_URL+'CommercialRequest', {
-            method: 'POST',
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-            },
-            body:JSON.stringify(data)})
+
+            fetch(variables.API_NGROK_URL+'CommercialRequest', {
+                method: 'POST',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    TelegramUserId: queryId,
+                    StoneType: stoneType,
+                    StoneName: stoneName,
+                    GeometryThick: thick,
+                    FinishingOfStone: finishingType,
+                    QuantityVolume: volume,
+                    FactoryPrice: price,
+                    CurrencyCharCode: currencyType,
+                    PortOfShipment: portOfShipmentType,
+                    PortOfDelivery: portOfDeliveryType
+                })
+            })
     }, [queryId, stoneType, stoneName,thick,finishingType,volume,price,currencyType,portOfShipmentType,portOfDeliveryType])
 
     // const onSendData = useCallback(() => {
