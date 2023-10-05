@@ -159,12 +159,6 @@ const PriceForm = (props) => {
         }
     }, [onSendData])
 
-    useEffect(() => {
-        if(tg.MainButton == onClick){
-            onClose()
-        }
-    }, [])
-
     return (
         <div>
             <form>
