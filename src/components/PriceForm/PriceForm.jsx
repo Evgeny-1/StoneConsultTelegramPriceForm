@@ -127,29 +127,45 @@ const PriceForm = (props) => {
     }, []);
 
     const onSendData = useCallback(() => {
-        fetch(variables.API_URL+'CommercialRequest', {
-            method: 'POST',
-            headers: {
-                'Accept':'application/json',
-                'Content-Type':'application/json'
-            },
-            body:JSON.stringify({
-                TelegramUserId:queryId,
-                StoneType:stoneType,
-                StoneName:stoneName,
-                GeometryThick:thick,
-                FinishingOfStone:finishingType,
-                QuantityVolume:volume,
-                FactoryPrice:price,
-                CurrencyCharCode:currencyType,
-                PortOfShipment:portOfShipmentType,
-                PortOfDelivery:portOfDeliveryType
-            })
-        }).then(result => result.json())
-            .then((result) => {
-                console.log(result);
-            })
-    }, [])
+        const data = {
+            queryId,
+            stoneType,
+            stoneName,
+            thick,
+            finishingType,
+            volume,
+            price,
+            currencyType,
+            portOfShipmentType,
+            portOfDeliveryType
+        }
+        tg.sendData(JSON.stringify(data));
+    }, [queryId, stoneType, stoneName,thick,finishingType,volume,price,currencyType,portOfShipmentType,portOfDeliveryType])
+
+    // const onSendData = useCallback(() => {
+    //     fetch(variables.API_URL+'CommercialRequest', {
+    //         method: 'POST',
+    //         headers: {
+    //             'Accept':'application/json',
+    //             'Content-Type':'application/json'
+    //         },
+    //         body:JSON.stringify({
+    //             TelegramUserId:queryId,
+    //             StoneType:stoneType,
+    //             StoneName:stoneName,
+    //             GeometryThick:thick,
+    //             FinishingOfStone:finishingType,
+    //             QuantityVolume:volume,
+    //             FactoryPrice:price,
+    //             CurrencyCharCode:currencyType,
+    //             PortOfShipment:portOfShipmentType,
+    //             PortOfDelivery:portOfDeliveryType
+    //         })
+    //     }).then(result => result.json())
+    //         .then((result) => {
+    //             console.log(result);
+    //         })
+    // }, [stoneType,stoneName,thick,finishingType,volume,price,currencyType,portOfShipmentType,portOfDeliveryType])
 
     useEffect(() => {
         tg.onEvent('mainButtonClicked', onSendData)
@@ -217,6 +233,11 @@ const PriceForm = (props) => {
                         portOfDelivery?.map((opts, i) => <option>{opts.portOfDeliveryName}</option>)
                     }
                 </select>
+                <button type="button"
+                        className="btn btn-three"
+                        onClick={() => onSendData()}
+                >GO!
+                </button>
             </form>
         </div>
     );
