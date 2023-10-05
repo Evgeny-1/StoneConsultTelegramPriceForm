@@ -97,31 +97,31 @@ const PriceForm = (props) => {
     }, [stoneName, thick, volume, price])
 
     useEffect(() => {
-        fetch(variables.API_NGROK_URL + 'Stone')
+        fetch(variables.API_URL + 'Stone')
             .then(data => data.json())
             .then(data => setStone(data))
     }, []);
 
     useEffect(()=>{
-        fetch(variables.API_NGROK_URL + 'Finishing')
+        fetch(variables.API_URL + 'Finishing')
             .then(response => response.json())
             .then(data => setFinishing(data))
     }, []);
 
     useEffect(()=>{
-        fetch(variables.API_NGROK_URL + 'Currency')
+        fetch(variables.API_URL + 'Currency')
             .then(data => data.json())
             .then(data => setCurrency(data))
     }, []);
 
     useEffect(()=>{
-        fetch(variables.API_NGROK_URL + 'PortOfShipment')
+        fetch(variables.API_URL + 'PortOfShipment')
             .then(data => data.json())
-            .then(data => setPortOfShipment(0))
+            .then(data => setPortOfShipment(data))
     }, []);
 
     useEffect(()=>{
-        fetch(variables.API_NGROK_URL + 'PortOfDelivery')
+        fetch(variables.API_URL + 'PortOfDelivery')
             .then(data => data.json())
             .then(data => setPortOfDelivery(data))
     }, []);
@@ -129,7 +129,7 @@ const PriceForm = (props) => {
 
 
     const onSendData = useCallback(() => {
-        fetch(variables.API_NGROK_URL+'CommercialRequest', {
+        fetch(variables.API_URL+'CommercialRequest', {
             method: 'POST',
             headers: {
                 'Accept':'application/json',
