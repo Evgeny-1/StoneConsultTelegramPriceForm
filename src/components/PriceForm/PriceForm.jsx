@@ -170,10 +170,6 @@ const PriceForm = (props) => {
             })
     }, [queryId, stoneType, stoneName, thick, finishingType, volume, price, currencyType, portOfShipmentType, portOfDeliveryType])
 
-    useEffect(()=>{
-        td.ready();
-    },[])
-
     useEffect(() => {
         tg.onEvent('mainButtonClicked', onSendData)
         return () => {
