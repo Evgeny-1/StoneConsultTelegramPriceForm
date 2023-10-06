@@ -5,7 +5,7 @@ import {useCallback, useEffect} from "react";
 
 const PriceForm = (props) => {
 
-    const {tg, queryId, chatId, onClose} = useTelegram();
+    const {tg, queryId, onClose} = useTelegram();
 
     const [stone, setStone] = useState([]);
     const [stoneType, setStoneType] = useState("");
@@ -112,9 +112,8 @@ const PriceForm = (props) => {
             .then(data => setPortOfDelivery(data))
     }, []);
 
-    const onSendData2 = useCallback(() => {
+    const onSendData = useCallback(() => {
         tg.sendData(JSON.stringify({
-            TelegramChatId:chatId,
             TelegramQueryId:queryId,
             StoneType:stoneType,
             StoneName:stoneName,
@@ -126,9 +125,9 @@ const PriceForm = (props) => {
             PortOfShipment:portOfShipmentType,
             PortOfDelivery:portOfDeliveryType
         }));
-    }, [chatId, queryId, stoneType, stoneName, thick, finishingType, volume, price, currencyType, portOfShipmentType, portOfDeliveryType])
+    }, [queryId, stoneType, stoneName, thick, finishingType, volume, price, currencyType, portOfShipmentType, portOfDeliveryType])
 
-    const onSendData = useCallback(() => {
+    const onSendData2 = useCallback(() => {
         fetch(variables.API_URL+'CommercialRequest', {
             method: 'POST',
             headers: {
@@ -136,7 +135,6 @@ const PriceForm = (props) => {
                 'Content-Type':'application/json'
             },
             body:JSON.stringify({
-                TelegramChatId:chatId,
                 TelegramQueryId:queryId,
                 StoneType:stoneType,
                 StoneName:stoneName,
@@ -152,7 +150,7 @@ const PriceForm = (props) => {
             .then((result) => {
                 console.log(result);
             })
-    }, [chatId, queryId, stoneType, stoneName, thick, finishingType, volume, price, currencyType, portOfShipmentType, portOfDeliveryType])
+    }, [queryId, stoneType, stoneName, thick, finishingType, volume, price, currencyType, portOfShipmentType, portOfDeliveryType])
 
     useEffect(() => {
         tg.onEvent('mainButtonClicked', onSendData)
