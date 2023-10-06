@@ -143,8 +143,6 @@ const PriceForm = (props) => {
         }));
     }, [queryId, stoneType, stoneName, thick, finishingType, volume, price, currencyType, portOfShipmentType, portOfDeliveryType])
 
-
-
     const onSendData1 = useCallback(() => {
         fetch(variables.API_URL+'CommercialRequest', {
             method: 'POST',
