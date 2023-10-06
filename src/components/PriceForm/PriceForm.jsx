@@ -5,7 +5,7 @@ import {useCallback, useEffect} from "react";
 
 const PriceForm = (props) => {
 
-    const {tg, queryId, onClose} = useTelegram();
+    const {tg, userId, onClose} = useTelegram();
 
     const [stone, setStone] = useState([]);
     const [stoneType, setStoneType] = useState('');
@@ -60,22 +60,6 @@ const PriceForm = (props) => {
         setPortOfDeliveryType(event.target.value)
     }
 
-    const onSendData3 = useCallback(() => {
-        const data = {
-            queryId,
-            stoneType,
-            stoneName,
-            thick,
-            finishingType,
-            volume,
-            price,
-            currencyType,
-            portOfShipmentType,
-            portOfDeliveryType
-        }
-        tg.sendData(JSON.stringify(data));
-    }, [queryId, stoneType, stoneName, thick, finishingType, volume, price, currencyType, portOfShipmentType, portOfDeliveryType])
-
     useEffect(() => {
         tg.MainButton.setParams({
             text: 'OFFER'
@@ -128,21 +112,6 @@ const PriceForm = (props) => {
             .then(data => setPortOfDelivery(data))
     }, []);
 
-    const onSendData2 = useCallback(() => {
-        tg.sendData(JSON.stringify({
-            TelegramQueryId:queryId,
-            StoneType:stoneType,
-            StoneName:stoneName,
-            GeometryThick:thick,
-            FinishingOfStone:finishingType,
-            QuantityVolume:volume,
-            FactoryPrice:price,
-            CurrencyCharCode:currencyType,
-            PortOfShipment:portOfShipmentType,
-            PortOfDelivery:portOfDeliveryType
-        }));
-    }, [queryId, stoneType, stoneName, thick, finishingType, volume, price, currencyType, portOfShipmentType, portOfDeliveryType])
-
     const onSendData = useCallback(() => {
         fetch(variables.API_URL+'CommercialRequest', {
             method: 'POST',
@@ -151,7 +120,7 @@ const PriceForm = (props) => {
                 'Content-Type':'application/json'
             },
             body:JSON.stringify({
-                TelegramQueryId:queryId,
+                TelegramUserId:userId,
                 StoneType:stoneType,
                 StoneName:stoneName,
                 GeometryThick:thick,
