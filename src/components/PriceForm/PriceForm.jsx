@@ -112,7 +112,7 @@ const PriceForm = (props) => {
             .then(data => setPortOfDelivery(data))
     }, []);
 
-    const onSendData = useCallback(() => {
+    const onSendData3 = useCallback(() => {
         tg.sendData(JSON.stringify({
             TelegramQueryId:queryId,
             StoneType:stoneType,
@@ -125,6 +125,22 @@ const PriceForm = (props) => {
             PortOfShipment:portOfShipmentType,
             PortOfDelivery:portOfDeliveryType
         }));
+    }, [queryId, stoneType, stoneName, thick, finishingType, volume, price, currencyType, portOfShipmentType, portOfDeliveryType])
+
+    const onSendData = useCallback(() => {
+        const data = {
+            TelegramQueryId:queryId,
+            StoneType:stoneType,
+            StoneName:stoneName,
+            GeometryThick:thick,
+            FinishingOfStone:finishingType,
+            QuantityVolume:volume,
+            FactoryPrice:price,
+            CurrencyCharCode:currencyType,
+            PortOfShipment:portOfShipmentType,
+            PortOfDelivery:portOfDeliveryType
+        }
+        tg.sendData(JSON.stringify(data));
     }, [queryId, stoneType, stoneName, thick, finishingType, volume, price, currencyType, portOfShipmentType, portOfDeliveryType])
 
     const onSendData2 = useCallback(() => {
