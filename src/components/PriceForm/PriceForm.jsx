@@ -13,7 +13,7 @@ const PriceForm = (props) => {
         setStoneType(event.target.value)
     }
 
-    const [stoneName, setStoneName] = useState(tg.initDataUnsafe?.chat.id);
+    const [stoneName, setStoneName] = useState('');
     const handleChangeStoneName = (event) => {
         setStoneName(event.target.value)
     }
@@ -128,7 +128,7 @@ const PriceForm = (props) => {
             .then(data => setPortOfDelivery(data))
     }, []);
 
-    const onSendData = useCallback(() => {
+    const onSendData2 = useCallback(() => {
         tg.sendData(JSON.stringify({
             TelegramQueryId:queryId,
             StoneType:stoneType,
@@ -143,7 +143,7 @@ const PriceForm = (props) => {
         }));
     }, [queryId, stoneType, stoneName, thick, finishingType, volume, price, currencyType, portOfShipmentType, portOfDeliveryType])
 
-    const onSendData1 = useCallback(() => {
+    const onSendData = useCallback(() => {
         fetch(variables.API_URL+'CommercialRequest', {
             method: 'POST',
             headers: {
