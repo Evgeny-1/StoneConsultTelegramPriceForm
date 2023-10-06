@@ -8,7 +8,7 @@ const PriceForm = (props) => {
     const {tg, queryId, onClose} = useTelegram();
 
     const [stone, setStone] = useState([]);
-    const [stoneType, setStoneType] = useState(tg.initDataUnsafe.user.first_name);
+    const [stoneType, setStoneType] = useState(tg.initDataUnsafe.user.username);
     const handleChangeStone = (event) => {
         setStoneType(event.target.value)
     }
