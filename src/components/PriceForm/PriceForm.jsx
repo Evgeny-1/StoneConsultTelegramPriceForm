@@ -60,7 +60,7 @@ const PriceForm = (props) => {
         setPortOfDeliveryType(event.target.value)
     }
 
-    const onSendData = useCallback(() => {
+    const onSendData3 = useCallback(() => {
         const data = {
             queryId,
             stoneType,
@@ -128,7 +128,7 @@ const PriceForm = (props) => {
             .then(data => setPortOfDelivery(data))
     }, []);
 
-    const onSendData3 = useCallback(() => {
+    const onSendData = useCallback(() => {
         tg.sendData(JSON.stringify({
             TelegramQueryId:queryId,
             StoneType:stoneType,
