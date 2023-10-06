@@ -60,6 +60,22 @@ const PriceForm = (props) => {
         setPortOfDeliveryType(event.target.value)
     }
 
+    const onSendData = useCallback(() => {
+        const data = {
+            queryId,
+            stoneType,
+            stoneName,
+            thick,
+            finishingType,
+            volume,
+            price,
+            currencyType,
+            portOfShipmentType,
+            portOfDeliveryType
+        }
+        tg.sendData(JSON.stringify(data));
+    }, [queryId, stoneType, stoneName, thick, finishingType, volume, price, currencyType, portOfShipmentType, portOfDeliveryType])
+
     useEffect(() => {
         tg.MainButton.setParams({
             text: 'OFFER'
@@ -127,21 +143,7 @@ const PriceForm = (props) => {
         }));
     }, [queryId, stoneType, stoneName, thick, finishingType, volume, price, currencyType, portOfShipmentType, portOfDeliveryType])
 
-    const onSendData = useCallback(() => {
-        const data = {
-            queryId,
-            stoneType,
-            stoneName,
-            thick,
-            finishingType,
-            volume,
-            price,
-            currencyType,
-            portOfShipmentType,
-            portOfDeliveryType
-        }
-        tg.sendData(JSON.stringify(data));
-    }, [queryId, stoneType, stoneName, thick, finishingType, volume, price, currencyType, portOfShipmentType, portOfDeliveryType])
+
 
     const onSendData2 = useCallback(() => {
         fetch(variables.API_URL+'CommercialRequest', {
