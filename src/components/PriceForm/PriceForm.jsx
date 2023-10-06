@@ -181,15 +181,6 @@ const PriceForm = (props) => {
         }
     }, [onSendData])
 
-
-    useEffect(()=>{
-        tg.MainButton.onClick(()=>{
-            tg.onClose()
-        })
-
-    },[onSendData])
-
-
     return (
         <div>
             <form>
