@@ -8,7 +8,7 @@ const PriceForm = (props) => {
     const {tg, queryId, onClose} = useTelegram();
 
     const [stone, setStone] = useState([]);
-    const [stoneType, setStoneType] = useState(window.Telegram.WebApp.name);
+    const [stoneType, setStoneType] = useState(window.Telegram.WebApp.user.id);
     const handleChangeStone = (event) => {
         setStoneType(event.target.value)
     }
