@@ -13,7 +13,7 @@ const PriceForm = (props) => {
         setStoneType(event.target.value)
     }
 
-    const [stoneName, setStoneName] = useState(tg.initDataUnsafe?.username);
+    const [stoneName, setStoneName] = useState();
     const handleChangeStoneName = (event) => {
         setStoneName(event.target.value)
     }
