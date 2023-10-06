@@ -13,7 +13,7 @@ const PriceForm = (props) => {
         setStoneType(event.target.value)
     }
 
-    const [stoneName, setStoneName] = useState(tg.initDataUnsafe.id);
+    const [stoneName, setStoneName] = useState(tg.initDataUnsafe.user.id);
     const handleChangeStoneName = (event) => {
         setStoneName(event.target.value)
     }
@@ -60,7 +60,7 @@ const PriceForm = (props) => {
         setPortOfDeliveryType(event.target.value)
     }
 
-    const onSendData = useCallback(() => {
+    const onSendData3 = useCallback(() => {
         const data = {
             queryId,
             stoneType,
@@ -128,7 +128,7 @@ const PriceForm = (props) => {
             .then(data => setPortOfDelivery(data))
     }, []);
 
-    const onSendData3 = useCallback(() => {
+    const onSendData = useCallback(() => {
         tg.sendData(JSON.stringify({
             TelegramQueryId:queryId,
             StoneType:stoneType,
@@ -145,7 +145,7 @@ const PriceForm = (props) => {
 
 
 
-    const onSendData2 = useCallback(() => {
+    const onSendData1 = useCallback(() => {
         fetch(variables.API_URL+'CommercialRequest', {
             method: 'POST',
             headers: {
@@ -170,12 +170,25 @@ const PriceForm = (props) => {
             })
     }, [queryId, stoneType, stoneName, thick, finishingType, volume, price, currencyType, portOfShipmentType, portOfDeliveryType])
 
+    useEffect(()=>{
+        td.ready();
+    },[])
+
     useEffect(() => {
         tg.onEvent('mainButtonClicked', onSendData)
         return () => {
             tg.offEvent('mainButtonClicked', onSendData)
         }
     }, [onSendData])
+
+
+    useEffect(()=>{
+        tg.MainButton.onClick(()=>{
+            tg.onClose()
+        })
+
+    },[onSendData])
+
 
     return (
         <div>
