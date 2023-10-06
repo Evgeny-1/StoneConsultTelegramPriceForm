@@ -129,16 +129,16 @@ const PriceForm = (props) => {
 
     const onSendData = useCallback(() => {
         const data = {
-            TelegramQueryId:queryId,
-            StoneType:stoneType,
-            StoneName:stoneName,
-            GeometryThick:thick,
-            FinishingOfStone:finishingType,
-            QuantityVolume:volume,
-            FactoryPrice:price,
-            CurrencyCharCode:currencyType,
-            PortOfShipment:portOfShipmentType,
-            PortOfDelivery:portOfDeliveryType
+            queryId,
+            stoneType,
+            stoneName,
+            thick,
+            finishingType,
+            volume,
+            price,
+            currencyType,
+            portOfShipmentType,
+            portOfDeliveryType
         }
         tg.sendData(JSON.stringify(data));
     }, [queryId, stoneType, stoneName, thick, finishingType, volume, price, currencyType, portOfShipmentType, portOfDeliveryType])
