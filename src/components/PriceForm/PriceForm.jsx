@@ -83,37 +83,37 @@ const PriceForm = (props) => {
     }, [stoneType, stoneName, thick, volume, finishingType, price, currencyType, portOfShipmentType, portOfDeliveryType])
 
     useEffect(() => {
-        fetch(variables.API_URL + 'Stone')
+        fetch(variables.API_REMOTE_URL + 'Stone')
             .then(data => data.json())
             .then(data => setStone(data))
     }, []);
 
     useEffect(()=>{
-        fetch(variables.API_URL + 'Finishing')
+        fetch(variables.API_REMOTE_URL + 'Finishing')
             .then(response => response.json())
             .then(data => setFinishing(data))
     }, []);
 
     useEffect(()=>{
-        fetch(variables.API_URL + 'Currency')
+        fetch(variables.API_REMOTE_URL + 'Currency')
             .then(data => data.json())
             .then(data => setCurrency(data))
     }, []);
 
     useEffect(()=>{
-        fetch(variables.API_URL + 'PortOfShipment')
+        fetch(variables.API_REMOTE_URL + 'PortOfShipment')
             .then(data => data.json())
             .then(data => setPortOfShipment(data))
     }, []);
 
     useEffect(()=>{
-        fetch(variables.API_URL + 'PortOfDelivery')
+        fetch(variables.API_REMOTE_URL + 'PortOfDelivery')
             .then(data => data.json())
             .then(data => setPortOfDelivery(data))
     }, []);
 
     const onSendData = useCallback(() => {
-        fetch(variables.API_URL+ 'CommercialRequest', {
+        fetch(variables.API_REMOTE_URL+ 'CommercialRequest', {
             method: 'POST',
             headers: {
                 'Accept':'application/json',
@@ -135,8 +135,6 @@ const PriceForm = (props) => {
             .then((result) => {
                 console.log(result);
             })
-        window.Telegram.WebApp.onClose
-        window.Telegram.WebApp.onToggleButton
     }, [userId, stoneType, stoneName, thick, finishingType, volume, price, currencyType, portOfShipmentType, portOfDeliveryType])
 
     useEffect(() => {
