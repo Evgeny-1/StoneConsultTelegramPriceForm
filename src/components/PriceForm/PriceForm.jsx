@@ -113,7 +113,6 @@ const PriceForm = (props) => {
     }, []);
 
     const onSendData = useCallback(() => {
-
         fetch(variables.API_URL+ 'CommercialRequest', {
             method: 'POST',
             headers: {
@@ -136,7 +135,7 @@ const PriceForm = (props) => {
             .then((result) => {
                 console.log(result);
             })
-        tg.MainButton.hide();
+        sleep(1000)
         tg.close()
     }, [userId, stoneType, stoneName, thick, finishingType, volume, price, currencyType, portOfShipmentType, portOfDeliveryType])
 
