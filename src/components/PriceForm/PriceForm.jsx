@@ -135,7 +135,6 @@ const PriceForm = (props) => {
             .then((result) => {
                 console.log(result);
             })
-        sleep(1)
         tg.close()
     }, [userId, stoneType, stoneName, thick, finishingType, volume, price, currencyType, portOfShipmentType, portOfDeliveryType])
 
