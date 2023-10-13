@@ -137,10 +137,14 @@ const PriceForm = (props) => {
             })
     }, [userId, stoneType, stoneName, thick, finishingType, volume, price, currencyType, portOfShipmentType, portOfDeliveryType])
 
+    const onSendDataTelegram = useCallback(() => {
+        tg.sendData(userId)
+    }, [userId, stoneType, stoneName, thick, finishingType, volume, price, currencyType, portOfShipmentType, portOfDeliveryType])
+
     useEffect(() => {
-        tg.onEvent('mainButtonClicked', onSendData)
+        tg.onEvent('mainButtonClicked', onSendData, onSendDataTelegram)
         return () => {
-            tg.offEvent('mainButtonClicked', onSendData)
+            tg.offEvent('mainButtonClicked', onSendData, onSendDataTelegram)
         }
     }, [onSendData])
 
