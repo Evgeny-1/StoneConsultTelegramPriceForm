@@ -135,7 +135,8 @@ const PriceForm = (props) => {
             .then((result) => {
                 console.log(result);
             })
-        tg.close()
+        tg.onClose
+        tg.onToggleButton
     }, [userId, stoneType, stoneName, thick, finishingType, volume, price, currencyType, portOfShipmentType, portOfDeliveryType])
 
     useEffect(() => {
