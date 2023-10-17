@@ -7,9 +7,6 @@ const PriceForm = (props) => {
 
     const {tg, userId, onClose} = useTelegram();
 
-    const controller = new AbortController();
-    const timeoutId = setTimeout(() => controller.abort(), 3000);
-
     const [stone, setStone] = useState([]);
     const [stoneType, setStoneType] = useState('None');
     const handleChangeStone = (event) => {
