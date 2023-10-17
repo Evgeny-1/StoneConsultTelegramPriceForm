@@ -7,6 +7,9 @@ const PriceForm = (props) => {
 
     const {tg, userId, onClose} = useTelegram();
 
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 3000);
+
     const [stone, setStone] = useState([]);
     const [stoneType, setStoneType] = useState('None');
     const handleChangeStone = (event) => {
@@ -134,8 +137,8 @@ const PriceForm = (props) => {
         }).then(result => result.json())
             .then((result) => {
                 console.log(result);
+                tg.close();
             })
-        tg.close()
     }, [userId, stoneType, stoneName, thick, finishingType, volume, price, currencyType, portOfShipmentType, portOfDeliveryType])
 
     useEffect(() => {
