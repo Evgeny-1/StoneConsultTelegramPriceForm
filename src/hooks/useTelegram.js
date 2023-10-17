@@ -18,8 +18,10 @@ export function useTelegram() {
         onClose,
         onToggleButton,
         tg,
-        user: tg.initDataUnsafe?.user,
-        userId: tg.initDataUnsafe?.user.id
+        userId: tg.initDataUnsafe?.user.id,
+        userFirstName: tg.initDataUnsafe.user.first_name,
+        userLastName: tg.initDataUnsafe.user.last_name,
+        userUserName: tg.initDataUnsafe.user.username
     }
 }
 

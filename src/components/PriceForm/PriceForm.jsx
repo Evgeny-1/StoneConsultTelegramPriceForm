@@ -5,7 +5,7 @@ import {useCallback, useEffect} from "react";
 
 const PriceForm = (props) => {
 
-    const {tg, userId, onClose} = useTelegram();
+    const {tg, userId, userFirstName, userLastName, userUserName} = useTelegram();
 
     const [stone, setStone] = useState([]);
     const [stoneType, setStoneType] = useState('None');
@@ -121,6 +121,9 @@ const PriceForm = (props) => {
             },
             body:JSON.stringify({
                 TelegramUserId:userId,
+                TelegramUserFirstName:userFirstName,
+                TelegramUserLastName:userLastName,
+                TelegramUserUserName:userUserName,
                 StoneType:stoneType,
                 StoneName:stoneName,
                 GeometryThick:thick,
@@ -135,7 +138,7 @@ const PriceForm = (props) => {
             .then((result) => {
                 tg.close();
             })
-    }, [userId, stoneType, stoneName, thick, finishingType, volume, price, currencyType, portOfShipmentType, portOfDeliveryType])
+    }, [userId, userFirstName, userLastName, userUserName, stoneType, stoneName, thick, finishingType, volume, price, currencyType, portOfShipmentType, portOfDeliveryType])
 
     useEffect(() => {
         tg.onEvent('mainButtonClicked', onSendData)
