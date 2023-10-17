@@ -133,7 +133,6 @@ const PriceForm = (props) => {
             })
         }).then(result => result.json())
             .then((result) => {
-                console.log(result);
                 tg.close();
             })
     }, [userId, stoneType, stoneName, thick, finishingType, volume, price, currencyType, portOfShipmentType, portOfDeliveryType])
