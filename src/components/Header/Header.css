@@ -1,9 +1,9 @@
 .header_container{
     display: grid;
-    grid-template-areas:    "f . . . . . . ."
-                            "f b . . . . . ."
-                            "f t . . . . . ."
-                            "o o o o o o o o";
+    grid-template-areas:    "a . . . . . . ."
+                            "a b . . . . . ."
+                            "a c . . . . . ."
+                            "d d d d d d d d";
 
     border-radius: 5px;
 }
@@ -12,7 +12,7 @@
     width: 50px;
     border-radius: 5px;
     transition: 0.3s;
-    border: 1px solid black;
+    border: 2px solid white;
 }
 
 .transport__img {
@@ -24,23 +24,23 @@
 }
 
 .A{
-    grid-area: f;
+    grid-area: a;
 }
 
 .B{
     grid-area: b;
 }
 
-.T{
-    grid-area: t;
+.C{
+    grid-area: c;
 }
 
-.C{
-    grid-area: o;
+.D{
+    grid-area: d;
 }
 
 .hr-horizontal-gradient {
-    margin: -40px auto 10px;
+    margin: -50px auto 10px;
     padding: 0;
     height: 50px;
     border: none;

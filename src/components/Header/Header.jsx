@@ -13,10 +13,10 @@ const Header = () => {
             <div className={'B'}>
                 <label className={'logo'}><strong>StoneConsult</strong></label>
             </div>
-            <div className={'T'}>
+            <div className={'C'}>
                 <img src={require('../../Images/StoneConsult-Service.png')} alt={"transport"} className="transport__img"/>
             </div>
-            <div className={'C'}>
+            <div className={'D'}>
                 <hr className="hr-horizontal-gradient"/>
             </div>
 
