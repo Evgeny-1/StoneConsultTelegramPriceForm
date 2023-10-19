@@ -1,7 +1,7 @@
 .header_container{
     display: grid;
-    grid-template-areas:    "f b . . . . . ."
-                            "f i . . . . . ."
+    grid-template-areas:    "f . . . . . . ."
+                            "f b . . . . . ."
                             "f t . . . . . ."
                             "o o o o o o o o";
 
@@ -15,6 +15,10 @@
     border: 1px solid black;
 }
 
+.transport__img {
+    width: 200px;
+}
+
 .logo{
     color: black;
 }
@@ -24,7 +28,12 @@
 }
 
 .B{
-    grid-area: i;
+    grid-area: b;
+}
+
+
+.T{
+    grid-area: t;
 }
 
 .C{
