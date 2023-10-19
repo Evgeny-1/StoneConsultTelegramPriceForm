@@ -150,57 +150,57 @@ const PriceForm = (props) => {
     return (
         <div>
             <form>
-                <label><strong>Type of stone</strong></label>
+                <label><strong>Тип камня</strong></label>
                 <select onChange={handleChangeStone} value={stoneType}>
                     {stone?.map((opts, i) => <option>{opts.stoneType}</option>)}
                 </select>
-                <label><strong>Name of stone</strong></label>
+                <label><strong>Название камня</strong></label>
                 <input
                     type="text"
                     placeholder={'Name'}
                     value={stoneName}
                     onChange={handleChangeStoneName}
                 />
-                <label><strong>Geometry(Thick mm)</strong></label>
+                <label><strong>Геометрия(Толщина, мм)</strong></label>
                 <input
                     type="text"
                     placeholder={'Thick, mm'}
                     value={thick}
                     onChange={handleChangeThick}
                 />
-                <label><strong>Quantity of goods in m2</strong></label>
+                <label><strong>Кол-во продукции из камня, м2</strong></label>
                 <input
                     type="text"
                     placeholder={'Volume, m2'}
                     value={volume}
                     onChange={handleChangeVolume}
                 />
-                <label><strong>Type of finishing</strong></label>
+                <label><strong>Тип обработки камня</strong></label>
                 <select onChange={handleChangeFinishing} value={finishingType}>
                     {
                         finishing?.map((opts, i) => <option>{opts.finishingName}</option>)
                     }
                 </select>
-                <label><strong>Factory price per m2</strong></label>
+                <label><strong>Цена завода изготовителя за м2</strong></label>
                 <input
                     type="text"
                     placeholder={'Price'}
                     value={price}
                     onChange={handleChangePrice}
                 />
-                <label><strong>Currency</strong></label>
+                <label><strong>Валюта</strong></label>
                 <select value={currencyType} onChange={handleChangeCurrency}>
                     {
                         currency?.map((opts, i) => <option>{opts.charCode}</option>)
                     }
                 </select>
-                <label><strong>Port of shipment</strong></label>
+                <label><strong>Порт отгрузки</strong></label>
                 <select value={portOfShipmentType} onChange={handleChangePortOfShipment}>
                     {
                         portOfShipment?.map((opts, i) => <option>{opts.portOfShipmentName}</option>)
                     }
                 </select>
-                <label><strong>Point of delivery</strong></label>
+                <label><strong>Место доставки</strong></label>
                 <select value={portOfDeliveryType} onChange={handleChangePointOfDelivery}>
                     {
                         portOfDelivery?.map((opts, i) => <option>{opts.portOfDeliveryName}</option>)
