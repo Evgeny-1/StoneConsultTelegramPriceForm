@@ -157,21 +157,21 @@ const PriceForm = (props) => {
                 <label><strong>Название камня</strong></label>
                 <input
                     type="text"
-                    placeholder={'Name'}
+                    placeholder={'Название'}
                     value={stoneName}
                     onChange={handleChangeStoneName}
                 />
                 <label><strong>Геометрия(Толщина, мм)</strong></label>
                 <input
                     type="text"
-                    placeholder={'Thick, mm'}
+                    placeholder={'Толщина, мм'}
                     value={thick}
                     onChange={handleChangeThick}
                 />
                 <label><strong>Кол-во продукции из камня, м2</strong></label>
                 <input
                     type="text"
-                    placeholder={'Volume, m2'}
+                    placeholder={'Кол-во, м2'}
                     value={volume}
                     onChange={handleChangeVolume}
                 />
@@ -181,10 +181,10 @@ const PriceForm = (props) => {
                         finishing?.map((opts, i) => <option>{opts.finishingName}</option>)
                     }
                 </select>
-                <label><strong>Цена завода изготовителя за м2</strong></label>
+                <label><strong>Цена завода изготовителя, м2</strong></label>
                 <input
                     type="text"
-                    placeholder={'Price'}
+                    placeholder={'Цена, м2'}
                     value={price}
                     onChange={handleChangePrice}
                 />
